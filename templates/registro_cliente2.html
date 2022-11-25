@@ -1,0 +1,114 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<h2>Datos básicos</h2>
+<form action="requerimiento/" method="POST">{% csrf_token %}
+    <p>Nombre: <input type='text' name='nombre_cliente'></p>
+    <p>Apellidos: <input type='text' name='apellidos_cliente'></p>
+    <p>Dirección: <input type='text' name='direccion_cliente'></p>
+    {% if edad == ''%}
+        <p>Edad: <input type='number' name='edad_cliente'> </p>
+    {% else %}
+        <p>Edad: <input type='number' name='edad_cliente' placeholder="{{edad}}" value="{{edad}}"></p>
+    {% endif %}
+    <p>Sexo:
+        <input type='radio' name='hm_cliente' value='hombre'>Hombre 
+        <input type='radio' name='hm_cliente' value='mujer'>Mujer
+    </p>
+    <p>Motivo consulta: </p>
+
+
+<h2>Salud y antecedentes propios y familiares</h2>
+    <p>¿Padeces alguna enfermedad?:
+        <input type="radio" name='sn_cliente_enfermedad' value='si'>Si
+        <input type="radio" name='sn_cliente_enfermedad' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?: 
+        <input type="radio" name='sn_cliente_alergia' value='si'>Si
+        <input type="radio" name='sn_cliente_alergia' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p>¿Tienes antecedentes de enfermedades familiares?: 
+        <input type="radio" name='sn_cliente_antecedentes' value='si'>Si
+        <input type="radio" name='sn_cliente_antecedentes' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+
+
+<h2>Hábitos alimenticios</h2>
+    <p>Consumo de verduras y fruta: <input type='text' name='verdura_fruta'></p>
+    <p>Consumo de legumbres y cereales: <input type='text' name='legumbres_cereales'></p>
+    <p>Consumo de pescados y carnes: <input type='text' name='pescado_carne'></p>
+    <p>Consumo de frutos secos: <input type='text' name='frutos_secos'></p> 
+    <p>Consumo de lácteos: <input type='text' name='lacteos'></p> 
+    <p>Consumo de aceites: <input type='text' name='aceite'></p> 
+    <p>¿Cómo preparas los alimentos? : </p>
+    <p>Gustos alimentarios: </p>
+    <p>Historia ponderal: <input type='text' name='historial'></p>
+    <p>Edad a la que se alcanzó el peso máximo: <input type='number' name='edad_maxima'> </p>
+    <p>Causa subjetiva de la ganancia o pérdida de peso: <input type='text' name='causa' ></p>
+    <p>¿Ha realizado algún régimen nutricional? 
+        <input type="radio" name='sn_cliente_regimen' value='si'>Si
+        <input type="radio" name='sn_cliente_regimen' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual, durante cuanto tiempo, que falló? : </p>
+
+<h2>Estilo de vida</h2>
+    <p>Actividad diaria: <input type = "text" name = "actividad"> <!--Aqui tomaremos valores (Muy ligera, ligera, moderada, activa , muy activa)--></p>
+    <p>Consumo de alcohol: 
+        <input type="radio" name='sn_cliente_alcohol' value='si'> Si
+        <input type="radio" name='sn_cliente_alcohol' value='no'> No
+    </p>
+    <p>Consumo de café: 
+        <input type="radio" name='sn_cliente_cafe' value='si'> Si
+        <input type="radio" name='sn_cliente_cafe' value='no'> No
+    </p>
+    <p>Consumo de tabaco: 
+        <input type="radio" name='sn_cliente_tabaco' value='si'> Si
+        <input type="radio" name='sn_cliente_tabaco' value='no'> No
+    </p>
+    <p>Horas de sueño:  <input type='number' name='sueño'></p>
+    <p>Frecuencia de comidas:  </p>
+    <p>¿Quién se encargada de la compra?: </p>
+    <p>Frecuencia de compras: </p>
+
+<h2>Evaluación antropométrica</h2>
+    <p>Altura: <input type='number' name='altura'></p>
+    <p>Peso: <input type='number' name='peso'> </p>
+    <p>Porcentaje graso: </p>
+    <p>Pliegues cutáneos: </p>
+    <p>Circunsferencias corporales: </p>
+    <ul>
+        <li>Brazo: <input type='number' value='barzo'></li>
+        <li>Cintura: <input type='number' value='barzo'></li>
+        <li>Cuádriceps: <input type='number' value='barzo'></li>
+        <li>Espalda: <input type='number' value='barzo'></li>
+        <li>Hombro: <input type='number' value='barzo'></li>
+        <li>Brazo: <input type='number' value='barzo'></li>
+    </ul>
+
+<h2>Exámenes de laboratorio</h2>
+    <!---Aqui subiríamos un archivo-->
+
+<h2>Requerimientos energéticos</h2>
+
+    <p>kcal: <input type="text" name="kcal"> </p>
+    <p>Proteinas: <input type="number" name="proteinas"> % </p>
+    <p>Grasas: <input type="number" name="grasas"> % </p>
+    <p>Hidratos de carbono: <input type="number" name="hc"> %  </p>
+
+
+<input type='submit' name='Registrar' value='Registrar'>
+</form>
+
+
+{% endblock %}

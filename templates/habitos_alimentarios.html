@@ -1,0 +1,126 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if forms.errors %}
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert-check it out!
+    </div>
+    {% endif %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Hábitos Alimentarios</h1>
+    <p class="mb-4"></p>
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="InputConsumoF">Consumo de Frutas</label>
+                        <select id="InputConsumoF" class="form-control" name="consumoF">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoV">Consumo de Verduras</label>
+                        <select id="InputConsumoV" class="form-control" name="consumoV">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoC">Consumo de Carne</label>
+                        <select id="InputConsumoC" class="form-control" name="consumoC">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoP">Consumo de Pescado</label>
+                        <select id="InputConsumoP" class="form-control" name="consumoP">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="InputConsumoCer">Consumo de Cereales</label>
+                        <select id="InputConsumoCer" class="form-control" name="consumoCer">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoL">Consumo de Legumbres</label>
+                        <select id="InputConsumoL" class="form-control" name="consumoL">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoFrutosS">Consumo de Frutos Secos</label>
+                        <select id="InputConsumoFrutosS" class="form-control" name="consumoFrutosS">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoLact">Consumo de Lácteos</label>
+                        <select id="InputConsumoLact" class="form-control" name="consumoLact">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="InputConsumoAceites">Consumo de Aceites</label>
+                        <select id="InputConsumoAceites" class="form-control" name="consumoAceites">
+                            <option selected>Seleccionar</option>
+                            <option>No suelo consumir</option>
+                            <option>Una vez por semana</option>
+                            <option>De 2 a 3 veces por semana</option>
+                            <option>Todos los días</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

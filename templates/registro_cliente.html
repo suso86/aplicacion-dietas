@@ -1,0 +1,42 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if forms.errors %}
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert-check it out!
+    </div>
+    {% endif %}
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario de registro con múltiples pasos</title>
+    <link rel="stylesheet" href="{% static 'Nutricion/css/app.css' %}">
+</head>
+<body>
+    <div class="root">
+        <form action="{% url 'guardarCliente' %}" method="POST"> {% csrf_token %}
+            {% if mensaje %}
+                <div class="alert alert-success" role="alert">
+                    Alumno registrado correctamente!
+                </div>
+            {% endif %}
+            
+            {{form}}
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

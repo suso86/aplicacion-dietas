@@ -1,0 +1,362 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulario de registro con múltiples pasos</title>
+    <link rel="stylesheet" href="{% static 'Nutricion/css/app.css' %}">
+</head>
+<body>
+    <div class="root">
+        <form action="registro_correcto/" method="POST" class="form-register"> {% csrf_token %}
+            <div class="form-register__header">
+                <ul class="progressbar">
+                    <li class="progressbar__option active">paso 1</li>
+                    <li class="progressbar__option">paso 2</li>
+                    <li class="progressbar__option">paso 3</li>
+                    <li class="progressbar__option">paso 4</li>
+                    <li class="progressbar__option">paso 5</li>
+                    <li class="progressbar__option">paso 6</li>
+                    <li class="progressbar__option">paso 7</li>
+                </ul>
+                <h1 class="form-register__title">Registrar Cliente</h1>
+            </div>
+            <div class="form-register__body">
+                <div class="step active" id="step-1">
+                    <div class="step__header">
+                        <h2 class="step__title">Datos Básicos<small> (Paso 1)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <input type="text" placeholder="Nombre" class="step__input" name="nombre_cliente">
+                        <input type="text" placeholder="Apellidos" class="step__input" name="apellidos_cliente">
+                        <input type="text" placeholder="Email" class="step__input" name="email_cliente">
+                        <input type="text" placeholder="Dirección" class="step__input" name="direccion_cliente">
+                        <input type="text" placeholder="Ocupacion" class="step__input" name="ocupacion_cliente">
+                        <input type="number" placeholder="Edad" class="step__input" name="edad_cliente"> 
+                        <input type="number" placeholder="Teléfono" class="step__input" name="tlf_cliente">                   
+                        <input type="radio" class="step__input" name="hm_cliente" value='hombre'>Hombre
+                        <br> 
+                        <input type="radio" class="step__input" name="hm_cliente" value='mujer'>Mujer
+                        <br>
+                        <p>Motivo de Consulta:
+                            <select class="step__input" name='motivo_consulta'>
+                                <option>Pérdida de Peso</option>
+                                <option>Aumentar masa muscular</option>
+                                <option>Mantenimiento de Peso</option>
+                                <option>Adquirir Hábitos Saludables</option>
+                                <option>Otros</option>
+                        </p>
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--next" data-to_step="2" data-step="1">Siguiente</button>
+                    </div>
+                </div>
+                <div class="step" id="step-2">
+                    <div class="step__header">
+                        <h2 class="step__title">Datos clínicos<small> (Paso 2)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <p>¿Padeces alguna enfermedad?:
+                            <input type="radio" class="step__input" name='sn_cliente_enfermedad' value='si'>Sí
+                            <input type="radio" class="step__input" name='sn_cliente_enfermedad' value='no'>No
+                        </p>
+                        <!--<input type="text" placeholder="¿Cuál?" class="step__input" name='cliente_enfermedad'>-->
+                        <p>¿Cuál?
+                            <select class="step__input" name='cliente_enfermedad'>
+                                <option>Diabetes Tipo 1</option>
+                                <option>Diabetes Tipo 2</option>
+                                <option>Hipertensión</option>
+                                <option>Colesterol Alto</option>
+                                <option>Otros</option>
+                        </p>
+                        <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?
+                            <input type="radio" class="step__input" name='sn_cliente_alergia' value='si'>Sí
+                            <input type="radio" class="step__input" name='sn_cliente_alergia' value='no'>No
+                        </p>
+                        <!--<input type="text" placeholder="¿Cuál?" class="step__input" name='cliente_alergia'>-->
+                        <p>¿Cuál?
+                            <select class="step__input" name='cliente_alergia'>
+                                <option>Gluten</option>
+                                <option>Mariscos</option>
+                                <option>Lactosa</option>
+                                <option>Otros</option>
+                        </p>
+                        <p>¿Tienes antecedentes de enfermedades familiares? 
+                            <input type="radio" class="step__input" name='sn_cliente_antecedentes' value='si'>Si
+                            <input type="radio" class="step__input" name='sn_cliente_antecedentes' value='no'>No
+                        </p>
+                        <input type="text" placeholder="¿Cuál?" class="step__input" name='cliente_antecedentes'>
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="1" data-step="2">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="3" data-step="2">Siguiente</button>
+                    </div>
+                </div>
+                <div class="step" id="step-3">
+                    <div class="step__header">
+                        <h2 class="step__title">Hábitos alimentarios<small> (Paso 3)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <input type="text" placeholder="Consumo de verduras y fruta" class="step__input" name="verdura_fruta">
+                        <input type="text" placeholder="Consumo de legumbres y cereales" class="step__input" name="legumbres_cereales">
+                        <input type="text" placeholder="Consumo de pescados y carnes" class="step__input" name="pescado_carne">
+                        <input type="text" placeholder="Consumo de frutos secos" class="step__input" name="frutos_secos">
+                        <input type="text" placeholder="Consumo de lácteos" class="step__input" name="lacteos">
+                        <input type="text" placeholder="Consumo de aceites" class="step__input" name="aceites">
+                        <input type="text" placeholder="¿Cómo preparas los alimentos?" class="step__input" name="">
+                        <input type="text" placeholder="Gustos alimentarios" class="step__input" name="">
+                        <!--Nuevo apartado-->
+                        <input type="text" placeholder="Historia ponderal" class="step__input" name="historial">
+                        <input type="text" placeholder="Edad a la que se alcanzó el peso máximo" class="step__input" name="edad_maxima">
+                        <input type="text" placeholder="Causa subjetiva de la ganancia o pérdida de peso" class="step__input" name="causa">
+                        <p>¿Ha realizado algún régimen nutricional? 
+                            <input type="radio" class="step__input" name='sn_cliente_regimen' value='si'>Si
+                            <input type="radio" class="step__input" name='sn_cliente_regimen' value='no'>No
+                        </p>
+                        <input type="text" placeholder="¿Cuál, durante cuanto tiempo, que falló?" class="step__input" name="">
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="2" data-step="3">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="4" data-step="3">Siguiente</button>
+                    </div>
+                </div>
+                <div class="step" id="step-4">
+                    <div class="step__header">
+                        <h2 class="step__title">Estilo de vida<small> (Paso 4)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <!--<p>Actividad diaria:
+                            <select class="step__input" name='actividad'>
+                                <option>Muy activa</option>
+                                <option>Activa</option>
+                                <option selected>Moderada</option>
+                                <option>Ligera</option>
+                                <option>Muy ligera</option>
+                        </p>--> 
+                        <input type="number" placeholder="Comidas diarias" class="step__input" name="comidas">
+                        <input type="text" placeholder="¿Quién realiza la compra?" class="step__input" name="compra">
+                        <input type="text" placeholder="Frecuencia compra" class="step__input" name="compra_frec">
+                        
+                        
+                        <!-- Seleccionar varias-->
+                        <p>Bebidas comer:
+                            <select class="step__input" name='actividad'>
+                                <option>Agua</option>
+                                <option>Refresco</option>
+                                <option selected>Zumo</option>
+                                <option>Cerveza o vino</option>
+                                <option>Nada</option>
+                                <option>Otro</option>
+                        </p> 
+                        <p>Consideras que tu alimentación es ...
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='si'>Monótona
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='no'>Variada
+                        </p>
+                        <p>Consumes productos etiquetados como "light"
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='si'>Sí
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='no'>No
+                        </p>
+                        <!-- Seleccionar varias-->
+                        <p>Franjas horarias mayor apetito:
+                            <select class="step__input" name='apetito'>
+                                <option>Mañana</option>
+                                <option>Mediodía</option>
+                                <option>Tarde</option>
+                                <option>Noche</option>
+                                <option>Otro</option>
+                        </p> 
+                        <p>Frecuencia comer fuera de casa
+                            <select class="step__input" name='comer_fuera'>
+                                <option>Habitualmente</option>
+                                <option>Ocasionalmente</option>
+                                <option>Alguna vez a la semana</option>
+                                <option>No suelo comer fuera de casa</option>
+                        </p> 
+                        <p>Consumes por impulsos o ansiedad
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='si'>Sí, no puedo controlar
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='no'>No, suelo comer de manera consciente
+                            <input type="radio" class="step__input" name='cliente_tipo_aliment' value='no'>A veces
+                        </p>
+                        <p>Consumo de alcohol
+                            <input type="radio" class="step__input" name='sn_cliente_alcohol' value='si'>Sí
+                            <input type="radio" class="step__input" name='sn_cliente_alcohol' value='no'>No
+                        </p>
+                        <p>Consumo de café
+                            <input type="radio" class="step__input" name='sn_cliente_cafe' value='si'>Sí
+                            <input type="radio" class="step__input" name='sn_cliente_cafe' value='no'>No
+                        </p>
+                        <p>Consumo de tabaco
+                            <input type="radio" class="step__input" name='sn_cliente_tabaco' value='si'>Sí
+                            <input type="radio" class="step__input" name='sn_cliente_tabaco' value='no'>No
+                        </p>
+                        <input type="number" placeholder="Horas de Levantarte" class="step__input" name="sueño">
+                        <input type="number" placeholder="Horas de Acostarse" class="step__input" name="sueño">
+
+                        <p>El concepto de dieta significa para ti:
+                            <input type="radio" class="step__input" name='significado' value='restriccion'>Restricción y privación de alimentos
+                            <input type="radio" class="step__input" name='significado' value='conjunto'>Manejo del conjunto y cantidad diaria de alimentos que se consumen habitualmente
+                        </p>
+
+                        <p>¿Qué crees que necesitas para mejorar tu alimentación?
+                            <input type="radio" class="step__input" name='mejoria' value='mas_informacion'>Más información
+                            <input type="radio" class="step__input" name='mejoria' value='motivacion'>Motivación personal y compromiso
+                            <input type="radio" class="step__input" name='mejoria' value='dinero'>Dinero
+                            <input type="radio" class="step__input" name='mejoria' value='tiempo'>Tiempo
+
+                        </p>
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="3" data-step="4">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="5" data-step="4">Siguiente</button>
+                    </div>
+                </div>
+                <!--Nuevo punto-->
+                <div class="step" id="step-5">
+                    <div class="step__header">
+                        <h2 class="step__title">Hábitos alimentarios<small> (Paso 5)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <p>Consumo de fruta:
+                            <input type="radio" class="step__input" name='consumo_fruta' value='diariamente'>Diariamente
+                            <input type="radio" class="step__input" name='consumo_fruta' value='alguna_vez'>Alguna vez por semana
+                            <input type="radio" class="step__input" name='consumo_fruta' value='no'>No suelo consumir fruta
+                        </p>
+
+                        <p>Consumo de verdura:
+                            <input type="radio" class="step__input" name='consumo_verdura' value='diariamente'>Diariamente
+                            <input type="radio" class="step__input" name='consumo_verdura' value='alguna_vez'>Alguna vez por semana
+                            <input type="radio" class="step__input" name='consumo_verdura' value='no'>No suelo consumir verdura
+                        </p>
+
+                        <p>Consumo de pescado:
+                            <input type="radio" class="step__input" name='consumo_pescado' value='dos_tres'>Dos o tres veces por semana
+                            <input type="radio" class="step__input" name='consumo_pescado' value='frecuencia'>Consumo con más frecuencia
+                            <input type="radio" class="step__input" name='consumo_pescado' value='no'>No suelo consumir pescado
+                        </p>
+
+                        <p>Consumo de carne:
+                            <input type="radio" class="step__input" name='consumo_carne' value='dos_tres'>Dos o tres veces por semana
+                            <input type="radio" class="step__input" name='consumo_carne' value='frecuencia'>Consumo con más frecuencia
+                            <input type="radio" class="step__input" name='consumo_carne' value='no'>No suelo consumir carne
+                        </p>
+
+                        <p>Consumo de legumbres:
+                            <input type="radio" class="step__input" name='consumo_legumbres' value='dos_tres'>Dos o tres veces por semana
+                            <input type="radio" class="step__input" name='consumo_legumbres' value='frecuencia'>Consumo con más frecuencia
+                            <input type="radio" class="step__input" name='consumo_legumbres' value='no'>No suelo consumir legumbres
+                        </p>
+
+                        <p>Consumo de Cereales:
+                            <input type="radio" class="step__input" name='consumo_cereales' value='dos_tres'>Dos o tres veces por semana
+                            <input type="radio" class="step__input" name='consumo_cereales' value='frecuencia'>Consumo con más frecuencia
+                            <input type="radio" class="step__input" name='consumo_cereales' value='no'>No suelo consumir cereales
+                        </p>
+
+                        <p>Consumo de lácteos:
+                            <input type="radio" class="step__input" name='consumo_lacteos' value='diariamente'>Diariamente
+                            <input type="radio" class="step__input" name='consumo_lacteos' value='alguna_vez'>Alguna vez por semana
+                            <input type="radio" class="step__input" name='consumo_lacteos' value='no'>No suelo consumir lácteos
+                        </p>
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="4" data-step="5">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="6" data-step="5">Siguiente</button>
+                    </div>
+                </div>
+                <!-- punto 5-->
+                <div class="step" id="step-5">
+                    <div class="step__header">
+                        <h2 class="step__title">Evaluación antropométrica<small> (Paso 5)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <input type="number" placeholder="Altura (en cm)" class="step__input" name="altura" max="220" min="130">
+                        <input type="number" placeholder="Peso (en kg)" class="step__input" name="peso" max="400" min="40">
+                        <p>Circunsferencias corporales </p>
+                        <ul>
+                            <li>Muñeca: <input type='number' class="step__input" name='muñeca'></li>
+                            <li>Antebrazo: <input type='number' class="step__input" name='antebrazo'></li>
+                            <li>Brazo: <input type='number' class="step__input" name='brazo'></li>
+                            <li>Cintura: <input type='number' class="step__input" name='cintura'></li>
+                            <li>Cadera: <input type='number' class="step__input" name='cadera'></li>
+                            <li>Circunsferencia media del muslo: <input type='number' class="step__input" name='cuadriceps'></li>
+                            <li>Pantorrilla: <input type='number' class="step__input" name='pantorrilla'></li>
+                        </ul>
+
+                        <p>Pliegues cutáneos</p>
+                        <ul>
+                            <li>Pliegue tricipital: <input type='number' class="step__input" name='tricipital'></li>
+                            <li>Pliegue bicipital: <input type='number' class="step__input" name='bicipital'></li>
+                            <li>Pliegue subescapular: <input type='number' class="step__input" name='subescapular'></li>
+                            <li>Pliegue suprailiaco: <input type='number' class="step__input" name='suprailiaco'></li>
+                            <li>Pliegue supraespinal: <input type='number' class="step__input" name='supraespinar'></li>
+                        </ul>
+
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="4" data-step="5">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="6" data-step="5">Siguiente</button>
+                    </div>
+                </div>
+                <div class="step" id="step-6">
+                    <div class="step__header">
+                        <h2 class="step__title">Exámenes de Laboratorio<small> (Paso 6)</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <label for="file">Selecciona ficheros en formato PDF</label>
+                        <input type="file" id="file" name="examenes" multiple accept=".pdf">
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="5" data-step="6">Regresar</button>
+                        <button type="button" class="step__button step__button--next" data-to_step="7" data-step="6">Siguiente</button>
+                    </div>
+                </div>
+                <div class="step" id="step-7">
+                    <div class="step__header">
+                        <h2 class="step__title">Requerimientos Energéticos<small> (Paso 7)</small></h2>
+                    </div>
+                    <!--Aparece Info del cliente
+                        Peso
+                        Porcentaje Masa Grasa
+                        IMC
+                    -->
+
+                    <!--Cálculos
+                        Metabolismo Basal
+                        Nivel Actividad Física (añadiremos según actividad)
+                        GET
+                        Superavit/Deficit
+                    -->
+                    <p>Deficit Manual/Automatico
+                        <input type="radio" class="step__input" name='significado' value='restriccion'>Manual
+                        <input type="radio" class="step__input" name='significado' value='conjunto'>Automatico
+                    </p>
+                    <div class="step__body">
+                        <input type="number" placeholder="KCAL" class="step__input" name="kcal" min="0" max="10000" step="50">
+                        <!--Distribucion Macro g/Kg-->
+                        <input type="number" placeholder="Porcentaje Proteínas" class="step__input" name="proteinas" min="0" max="1" step="0.01">
+                        <input type="number" placeholder="Porcentaje Grasas" class="step__input" name="grasas" min="0" max="1" step="0.01">
+                        <input type="number" placeholder="Porcentaje Hidratos" class="step__input" name="hidratos" min="0" max="1" step="0.01">
+                        <!--Gramos totales de la dieta --> 
+                        <!--Fibra --> 
+                        <input type="number" placeholder="Fibra" class="step__input" name="hidratos" min="0" max="1" step="0.01">
+                    </div>
+                    <div class="step__footer">
+                        <button type="button" class="step__button step__button--back" data-to_step="6" data-step="7">Regresar</button>
+                        <button type="submit" name='Registrar' class="step__button" value='Registrar'>Registrarse</button>
+                        
+        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'Nutricion/js/app.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

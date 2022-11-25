@@ -1,0 +1,57 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Alimentos</h1>
+          <p class="mb-4"></p>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Relación de Alimentos</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nombre Alimento (100g)</th>
+                      <th>Energía (kcal)</th>
+                      <th>Grasa Total (g)</th>
+                      <th>Proteína Total (g)</th>
+                      <th>Carbohidratos (g)</th>
+                      <th>Fibra (g)</th>
+                      <th>Agua (g)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for alimento in alimentos %}
+                    <tr>
+                      <td scope="row">{{ alimento.nombre }}</td>
+                      <td> {{ alimento.energia_kcal }} </td>
+                      <td> {{ alimento.grasatotal_g }} </td>
+                      <td> {{ alimento.proteinatotal_g }} </td>
+                      <td> {{ alimento.carbohid_g }} </td>
+                      <td> {{ alimento.fibra_g }} </td>
+                      <td> {{ alimento.agua_g }} </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+{% endblock  %}
+

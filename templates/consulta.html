@@ -1,0 +1,100 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Realización de Menú</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+
+          <table class="table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Lunes</th>
+                <th scope="col">Martes</th>
+                <th scope="col">Miércoles</th>
+                <th scope="col">Jueves</th>
+                <th scope="col">Viernes</th>
+                <th scope="col">Sabado</th>
+                <th scope="col">Domingo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Desayuno</th>
+                <td>
+                <p>
+                  <select style="max-width:20%">
+                    <option value="" disabled selected>Elige Alimento</option>
+                      {% for alimento in alimentos %}
+                        <option>{{ alimento.nombre }}</option>
+                      {% endfor %} 
+                  </select>    
+                  <select style="max-width:20%">
+                    <option value="" disabled selected>Elige Alimento</option>
+                      {% for alimento in alimentos %}
+                        <option>{{ alimento.nombre }}</option>
+                      {% endfor %} 
+                  </select> 
+                </p>   
+                </td>
+                <td>
+                <p>
+                  <select style="max-width:20%">
+                    <option value="" disabled selected>Elige Alimento</option>
+                      {% for alimento in alimentos %}
+                        <option>{{ alimento.nombre }}</option>
+                      {% endfor %} 
+                  </select>    
+                  <select style="max-width:20%">
+                    <option value="" disabled selected>Elige Alimento</option>
+                      {% for alimento in alimentos %}
+                        <option>{{ alimento.nombre }}</option>
+                      {% endfor %} 
+                  </select> 
+                </p>     
+                </td>
+                <td><p>
+                  <select style="max-width:20%">
+                    <option value="" disabled selected>Elige Alimento</option>
+                      {% for alimento in alimentos %}
+                        <option>{{ alimento.nombre }}</option>
+                      {% endfor %} 
+                  </select>           
+                </p></td>
+              </tr>
+              <tr>
+                <th scope="row">Media Mañana</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">Almuerzo</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">Merienda</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">Cena</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <!-- /.container-fluid -->
+
+{% endblock  %}

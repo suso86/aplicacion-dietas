@@ -1,0 +1,90 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if forms.errors %}
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert-check it out!
+    </div>
+    {% endif %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Historia Ponderal</h1>
+    <p class="mb-4"></p>
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="InputEdadPesoMax">Edad a la que se alcanzó el peso máximo</label>
+                        <input type="number" class="form-control" id="InputEdadPesoMax" placeholder="Introduzca edad" name="edadPesoMax">
+                    </div>
+                    <div class="col">
+                        <label for="InputPesoMax">Valor del peso máximo</label>
+                        <input type="number" class="form-control" id="InputPesoMax" placeholder="Introduzca peso máximo en kg" name="pesoMax">
+                    </div>
+                    <div class="col">
+                        <label for="InputCausaGanancia">Causa subjetiva de la ganancia de peso</label>
+                        <input type="number" class="form-control" id="InputCausaGanancia" placeholder="Introduzca causa" name="causaGanancia">
+                    </div>              
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="InputEdadPesoMax">Edad a la que se alcanzó el peso mínimo</label>
+                        <input type="number" class="form-control" id="InputEdadPesoMax" placeholder="Introduzca edad" name="edadPesoMin">
+                    </div>
+                    <div class="col">
+                        <label for="InputPesoMin">Valor del peso mínimo</label>
+                        <input type="number" class="form-control" id="InputPesoMin" placeholder="Introduzca peso mínimo en kg" name="pesoMin">
+                    </div>
+                    <div class="col">
+                        <label for="InputCausaPerdida">Causa subjetiva de la pérdida de peso</label>
+                        <input type="number" class="form-control" id="InputCausaPerdida" placeholder="Introduzca causa" name="causaPerdida">
+                    </div>              
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <p>¿Ha realizado algún régimen nutricional?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="regimen" id="InputRegimen" value="si" checked>
+                            <label class="form-check-label" for="InputRegimen">
+                                Sí
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="regimen" id="InputRegimen" value="no">
+                            <label class="form-check-label" for="InputRegimen">
+                                No
+                            </label>
+                        </div>
+                        <p> </p>
+                        <label for="InputRegimenTipo">¿Cuál?</label>
+                        <input type="text" class="form-control" id="InputRegimenTipo" placeholder="Introduzca el tipo de régimen" name="regimenTipo">
+                        <p> </p>
+                        <label for="InputRegimenTiempo">¿Durante cuánto tiempo?</label>
+                        <input type="text" class="form-control" id="InputRegimenTiempo" placeholder="Introduzca el tiempo en semanas" name="regimenTiempo">
+                        <p> </p>
+                        <label for="InputRegimenFallo">¿Qué creee que falló?</label>
+                        <input type="text" class="form-control" id="InputRegimenFallo" placeholder="Introduzca el motivo de fallo" name="regimenFallo">
+                    
+                    </div>           
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

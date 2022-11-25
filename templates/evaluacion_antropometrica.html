@@ -1,0 +1,78 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if forms.errors %}
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert-check it out!
+    </div>
+    {% endif %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Estilo de Vida</h1>
+    <p class="mb-4"></p>
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <p>Circunferencias corporales</p>
+                        <ul>
+                            <li><label for="InputMuñeca">Muñeca (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputMuñeca" placeholder="Introduzca valor en cm" name="muñeca"></li>
+                            <p> </p>
+                            <li><label for="InputAntebrazo">Antebrazo (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputAntebrazo" placeholder="Introduzca valor en cm" name="antebrazo"></li>
+                            <p> </p>
+                            <li><label for="InputBrazo">Brazo (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputBrazo" placeholder="Introduzca valor en cm" name="brazo"></li>
+                            <p> </p>
+                            <li><label for="InputCintura">Cintura (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputCintura" placeholder="Introduzca valor en cm" name="cintura"></li>
+                            <p> </p>
+                            <li><label for="InputCadera">Cadera (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputCadera" placeholder="Introduzca valor en cm" name="cadera"></li>
+                            <p> </p>
+                            <li><label for="InputMuslo">Circunferencia media del muslo (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputMuslo" placeholder="Introduzca valor en cm" name="muslo"></li>
+                            <p> </p>
+                            <li><label for="InputPantorrilla">Pantorrilla (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputPantorrilla" placeholder="Introduzca valor en cm" name="pantorrilla"></li>
+                        
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <p>Pliegues Cutáneos</p>
+                        <ul>
+                            <li><label for="InputTricipital">Pliegue tricipital (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputTricipital" placeholder="Introduzca valor en cm" name="tricipital"></li>
+                            <p> </p>
+                            <li><label for="InputBicipital">Pliegue bicipital (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputBicipital" placeholder="Introduzca valor en cm" name="bicipital"></li>
+                            <p> </p>
+                            <li><label for="InputSubescapular">Pliegue subescapular (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputSubescapular" placeholder="Introduzca valor en cm" name="subescapular"></li>
+                            <p> </p>
+                            <li><label for="InputSuprailiaco">Pliegue suprailiaco (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputSuprailiaco" placeholder="Introduzca valor en cm" name="suprailiaco"></li>
+                            <p> </p>
+                            <li><label for="InputSupraespinal">Pliegue supraespinal (cm)</label>
+                            <input type="number" min="0" max="100" class="form-control" id="InputSupraespinal" placeholder="Introduzca valor en cm" name="supraespinal"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

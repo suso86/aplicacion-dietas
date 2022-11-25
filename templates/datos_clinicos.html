@@ -1,0 +1,101 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    {% if forms.errors %}
+    <div class="alert alert-danger" role="alert">
+        This is a danger alert-check it out!
+    </div>
+    {% endif %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Datos Clínicos</h1>
+    <p class="mb-4"></p>
+        <form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <p>¿Padeces alguna enfermedad?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="si" checked>
+                            <label class="form-check-label" for="InputEnfermedad">
+                                Sí
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="no">
+                            <label class="form-check-label" for="InputEnfermedad">
+                                No
+                            </label>
+                        </div>
+                        <p> </p>
+                        <label for="InputEnfermedadTipo">¿Cuál?</label>
+                        <select id="InputEnfermedadTipo" class="form-control" name="enfermedadTipo">
+                            <option selected>Seleccionar</option>
+                            <option>Diabetes Tipo 1</option>
+                            <option>Diabetes Tipo 2</option>
+                            <option>Hipertensión</option>
+                            <option>Colesterol Alto</option>
+                            <option>Otros</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="alergia" id="InputAlergia" value="si" checked>
+                            <label class="form-check-label" for="alergia">
+                                Sí
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="alergia" id="InputAlergia" value="no">
+                            <label class="form-check-label" for="alergia">
+                                No
+                            </label>
+                        </div>
+                        <p> </p>
+                        <label for="InputAlergiaTipo">¿Cuál?</label>
+                        <select id="InputAlergiaTipo" class="form-control" name="alergiaTipo">
+                            <option selected>Seleccionar</option>
+                            <option>Gluten</option>
+                            <option>Mariscos</option>
+                            <option>Lactosa</option>
+                            <option>Otros</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <p>¿Tienes antecedentes de enfermedades familiares?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="si" checked>
+                    <label class="form-check-label" for="enfermedad">
+                      Sí
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="no">
+                    <label class="form-check-label" for="enfermedad">
+                      No
+                    </label>
+                </div>
+                <div class="form-group">
+                    <p> </p>
+                    <label for="InputDireccion">¿Cuál?</label>
+                    <input type="text" class="form-control" id="InputEnfermedad" placeholder="Introduzca la enfermedad" name="enfermedadTipo">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

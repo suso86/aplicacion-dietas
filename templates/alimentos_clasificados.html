@@ -1,0 +1,22 @@
+{%extends "Nutricion/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+<h1>{{categoria}}</h1>
+<table>
+    <tr>
+        <th>Nombre del alimento</th>
+        <th>Categoria</th>
+    </tr>
+    {% for a in alimentos%}
+    <tr>
+        <th><a href="">{{a.nombre}}</a></th>
+        <th>{{a.categoria}}</th>
+    </tr>
+    {%endfor%}
+</table>
+<p><a href="/Nutricion/alimentos/">Volver</a></p>
+
+{%endblock%}

@@ -1,0 +1,30 @@
+{% extends "Nutricion/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h2>Requerimientos energéticos</h2>
+<form action="/Nutricion/clientes/login/requerimiento/" method="POST">{% csrf_token %}
+    <input type="hidden" name="porcentaje_proteinas" value="{{proteinas_porcentaje}}"/>
+    <input type="hidden" name="porcentaje_grasas" value="{{grasas_porcentaje}}"/>
+    <input type="hidden" name="porcentaje_hc" value="{{hc_porcentaje}}"/>
+    <input type="hidden" name="proteinas" value="{{proteinas}}"/>
+    <input type="hidden" name="grasas" value="{{grasas}}"/>
+    <input type="hidden" name="hc" value="{{hc}}"/>
+
+    <p>kcal <input type="text" name = "nombre_funciones" placeholder="{{kcalorias}}" value="{{kcalorias}}"></p>
+    <ul>
+        <li>kcal totales : <input type="text" name="kcal_totales" placeholder="{{get}}" value="{{get}}"> g</li>
+        <li>Proteinas : <input type="text" name="proteinas_totales" placeholder="{{proteinas}}" value="{{proteinas}}"> g</li>
+        <li>Grasas : <input type="text" name="grasas_totales" placeholder="{{grasas}}" value="{{grasas}}"> g</li>
+        <li>Hidratos de carbono : <input type="text" name="hc_totales" placeholder="{{hc}}" value="{{hc}}"> g</li>
+    </ul>
+
+    <input type="submit" name="Calcular" value="Calcular">
+</form>
+
+<form action="/Nutricion/clientes/login/" method="POST">{% csrf_token %}
+    <input type="submit" name="volver" value = "volver">
+</form>
+{% endblock %}
