@@ -1,259 +1,68 @@
-{% extends "Nutricion/base.html" %}
-
-{% load static %}
-
+{% extends "base.html" %}
 {% block content %}
+<h2>Estilo de vida</h2>
+<form action="{{ url_for('EvaluacionAntropometrica') }}" method="POST">
+    <p>Actividad diaria: 
+        <input type="radio" name='actividad' value='muy ligera'> Muy ligera
+        <input type="radio" name='actividad' value='ligera'> Ligera
+        <input type="radio" name='actividad' value='moderada'> Moderada
+        <input type="radio" name='actividad' value='activa'> Activa
+        <input type="radio" name='actividad' value='muy activa'> Muy activa
+    </p>
+    
+    <p>Consumo de alcohol: 
+        <input type="radio" name='sn_cliente_alcohol' value='si'> Si
+        <input type="radio" name='sn_cliente_alcohol' value='no'> No
+    </p>
+    <p>Consumo de café: 
+        <input type="radio" name='sn_cliente_cafe' value='si'> Si
+        <input type="radio" name='sn_cliente_cafe' value='no'> No
+    </p>
+    <p>Consumo de tabaco: 
+        <input type="radio" name='sn_cliente_tabaco' value='si'> Si
+        <input type="radio" name='sn_cliente_tabaco' value='no'> No
+    </p>
+    <p>Horas de sueño:  <input type='number' name='sueño'></p>
+    <p>Frecuencia de comidas:  
+        <input type="radio" name='frecuencia_comida' value='2'> 2
+        <input type="radio" name='frecuencia_comida' value='3'> 3
+        <input type="radio" name='frecuencia_comida' value='4'> 4
+        <input type="radio" name='frecuencia_comida' value='5'> 5
+        <input type="radio" name='frecuencia_comida' value='5'> 6
+    </p>
+    <p>¿Quién se encargada de la compra?: <input type='text' name='encargado_compra' /></p>
+    <p>Frecuencia de compras: <input type='text' name='frecuencia_compras' /> </p>
 
-    {% if forms.errors %}
-    <div class="alert alert-danger" role="alert">
-        This is a danger alert-check it out!
-    </div>
-    {% endif %}
+    <p>¿Te gusta cocinar?:
+        <input type="radio" name='sn_gustar_cocinar' value='si'> Si
+        <input type="radio" name='sn_gustar_cocinar' value='no'> No
+    </p>
 
+    <p>¿A qué hora del día tienes más hambre?:
+        <input type="radio" name='mas_hambre' value='desayuno'> desayuno
+        <input type="radio" name='mas_hambre' value='media-mañana'> media-mañana
+        <input type="radio" name='mas_hambre' value='almuerzo '> almuerzo 
+        <input type="radio" name='mas_hambre' value='merienda'> merienda
+        <input type="radio" name='mas_hambre' value='cena'> cena
+    </p>
 
+    <p>Desayuno habitual: <input type='text' name='desayuno_habitual' /> </p>
+    <p>Merienda habitual: <input type='text' name='merienda_habitual' /></p>
+    <p>Preferencias de comida en la merienda: <input type='text' name='preferencia_merienda' /> </p>
+    <p>Preferencias de comida en el desayuno: <input type='text' name='preferencia_desayuno' /> </p>
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Estilo de Vida</h1>
-    <p class="mb-4"></p>
-        <form>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <label for="InputActividad">Actividad Diaria</label>
-                        <select id="InputActividad" class="form-control" name="actividad">
-                            <option selected>Seleccionar</option>
-                            <option>Muy activa</option>
-                            <option>Activa</option>
-                            <option>Moderada</option>
-                            <option>Ligera</option>
-                            <option>Muy ligera</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="InputComidas">Comidas Diarias</label>
-                        <select id="InputComidas" class="form-control" name="comidas">
-                            <option selected>Seleccionar</option>
-                            <option>Cinco comidas</option>
-                            <option>De 2 a 4 comidas</option>
-                            <option>Menos de dos comidas</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="InputCompra">¿Quién realiza la compra?</label>
-                        <select id="InputCompra" class="form-control" name="compra">
-                            <option selected>Seleccionar</option>
-                            <option>Yo</option>
-                            <option>Padres</option>
-                            <option>Pareja</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="InputCompraFrec">Frecuencia de compra</label>
-                        <select id="InputCompraFrec" class="form-control" name="compraFrec">
-                            <option selected>Seleccionar</option>
-                            <option>Una vez al mes</option>
-                            <option>De 2 a 3 veces al mes</option>
-                            <option>Una vez por semana</option>
-                            <option>De 2 a 3 veces por semana</option>
-                            <option>Todos los días</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <label for="InputBebida">Tipo de Bebida en comidas</label>
-                        <select id="InputBebida" class="form-control" name="bebida">
-                            <option selected>Seleccionar</option>
-                            <option>Refresco</option>
-                            <option>Zumo</option>
-                            <option>Cerveza o Vino</option>
-                            <option>No suelo beber</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <p>Consideras que tu alimentación es ...</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipoAliment" id="InputTipoAliment" value="monotona" checked>
-                            <label class="form-check-label" for="InputTipoAliment">
-                                Monótona
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tipoAliment" id="InputTipoAliment" value="variada">
-                            <label class="form-check-label" for="InputTipoAliment">
-                                Variada
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>¿Consumes productos etiquetados como "light"?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="light" id="InputLight" value="si" checked>
-                            <label class="form-check-label" for="InputLight">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="light" id="InputLight" value="no">
-                            <label class="form-check-label" for="InputLight">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for="InputApetito">Franjas horarias mayor apetito</label>
-                        <select id="InputApetito" class="form-control" name="apetito">
-                            <option selected>Seleccionar</option>
-                            <option>Mañana</option>
-                            <option>Mediodía</option>
-                            <option>Tarde</option>
-                            <option>Noche</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="InputFuera">Frecuencia comer fuera de casa</label>
-                        <select id="InputFuera" class="form-control" name="fuera">
-                            <option selected>Seleccionar</option>
-                            <option>Habitualmente</option>
-                            <option>Ocasionalmente</option>
-                            <option>Alguna vez a la semana</option>
-                            <option>No suelo comer fuera de casa</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <p>¿Comes por impulsos o ansiedad?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ansiedad" id="InputAnsiedad" value="si" checked>
-                            <label class="form-check-label" for="InputAnsiedad">
-                                Sí, no puedo controlar
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ansiedad" id="InputAnsiedad" value="no">
-                            <label class="form-check-label" for="InputAnsiedad">
-                                No, suelo comer de manera consciente
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ansiedad" id="InputAnsiedad" value="aveces">
-                            <label class="form-check-label" for="InputAnsiedad">
-                                A veces
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>Consumo de alcohol</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="alcohol" id="InputAlcohol" value="si" checked>
-                            <label class="form-check-label" for="InputAlcohol">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="alcohol" id="InputAlcohol" value="no">
-                            <label class="form-check-label" for="InputAlcohol">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>Consumo de café</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="cafe" id="InputCafe" value="si" checked>
-                            <label class="form-check-label" for="InputCafe">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="cafe" id="InputCafe" value="no">
-                            <label class="form-check-label" for="InputCafe">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>Consumo de tabaco</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tabaco" id="InputTabaco" value="si" checked>
-                            <label class="form-check-label" for="InputTabaco">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tabaco" id="InputTabaco" value="no">
-                            <label class="form-check-label" for="InputTabaco">
-                                No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <label for="InputHorasSueño">Horas de sueño</label>
-                        <input type="number" min="0" max="24" class="form-control" id="InputHorasSueño" placeholder="Introduzca horas de sueño" name="horaSueño">
-                    </div>
-                    <div class="col">
-                        <p>Concepto de dieta para ti</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="dieta" id="InputDieta" value="neg" checked>
-                            <label class="form-check-label" for="InputDieta">
-                                Restricción y privación de alimentos
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="dieta" id="InputDieta" value="pos">
-                            <label class="form-check-label" for="InputDieta">
-                                Manejo del conjunto y cantidad diaria de alimentos que se consumen habitualmente
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p>¿Qué crees que necesitas para mejorar tu alimentación?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="mejorar" id="InputMejorar" value="info" checked>
-                            <label class="form-check-label" for="InputMejorar">
-                                Más información
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="mejorar" id="InputMejorar" value="motiv">
-                            <label class="form-check-label" for="InputMejorar">
-                                Motivación personal y compromiso
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="mejorar" id="InputMejorar" value="dinero">
-                            <label class="form-check-label" for="InputMejorar">
-                                Dinero
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="mejorar" id="InputMejorar" value="tiempo">
-                            <label class="form-check-label" for="InputMejorar">
-                                Tiempo
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <p>¿Sueles hacer 1 o 2 platos en la comida?:
+        <input type="radio" name='platos' value='1'> 1
+        <input type="radio" name='platos' value='2'> 2
+    </p>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
-</div>
-</body>
-</html>
-
+    <p>¿Cuántas comidas quieres realizar al día?:
+        <input type="checkbox" name='comidas_realizar' value='desayuno'> desayuno
+        <input type="checkbox" name='comidas_realizar' value='media-mañana'> media-mañana
+        <input type="checkbox" name='comidas_realizar' value='almuerzo '> almuerzo 
+        <input type="checkbox" name='comidas_realizar' value='merienda'> merienda
+        <input type="checkbox" name='comidas_realizar' value='cena'> cena
+    </p>
+    <input type="submit" value="Continuar"/> 
+</form>
 {% endblock %}

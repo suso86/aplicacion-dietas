@@ -1,86 +1,24 @@
-{% extends "Nutricion/base.html" %}
-
-{% load static %}
+{% extends "base.html" %}
 
 {% block content %}
-
-    {% if forms.errors %}
-    <div class="alert alert-danger" role="alert">
-        This is a danger alert-check it out!
-    </div>
+<h2>Datos básicos</h2>
+<form action="{{ url_for('SaludAntecedentes') }}" method="POST">
+    <p>Nombre: <input type='text' name='nombre_cliente' required/></p>
+    <p>Primer apellido: <input type='text' name='primer_apellido' required/>
+       Segundo apellido: <input type='text' name='segundo_apellido' required/>
+    </p>
+    <p>Dirección: <input type='text' name='direccion_cliente'/></p>
+    {% if edad == ''%}
+        <p>Edad: <input type='number' name='edad_cliente'/> </p>
+    {% else %}
+        <p>Edad: <input type='number' name='edad_cliente' placeholder="{{edad}}" value="{{edad}}"/></p>
     {% endif %}
-
-
-
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Datos Básicos</h1>
-    <p class="mb-4"></p>
-        <form>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <label for="InputNombre">Nombre</label>
-                        <input type="text" class="form-control" id="InputNombre" placeholder="Nombre" name="nombre">
-                    </div>
-                    <div class="col">
-                        <label for="InputApellido">Nombre</label>
-                        <input type="text" class="form-control" id="InputApellido" placeholder="Apellidos" name="apellidos">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-              <label for="InputEmail">Email</label>
-              <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Introduzca email" name="email">
-              <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con nadie.</small>
-            </div>
-            <div class="form-group">
-                <label for="InputDireccion">Lugar de Residencia</label>
-                <input type="text" class="form-control" id="InputDireccion" placeholder="Introduzca localidad de residencia" name="direccion">
-            </div>
-            <div class="form-group">
-                <label for="InputOcupacion">Ocupación</label>
-                <input type="text" class="form-control" id="InputOcupacion" placeholder="Introduzca ocupación" name="ocupacion">
-            </div>
-            <div class="form-group">
-                <label for="InputNacimiento">Fecha Nacimiento</label>
-                <input type="date" class="form-control" id="InputNacimiento" placeholder="DD/MM/AAAA" name="fechanacimiento">
-            </div>
-            <div class="form-group">
-                <label for="InputTlf">Número de Teléfono</label>
-                <input type="text" class="form-control" id="InputTlf" placeholder="XXXXXXXXX" name="tlf">
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="Genero" id="InputGenero" value="hombre" checked>
-                    <label class="form-check-label" for="InputGenero">
-                      Hombre
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="Genero" id="InputGenero" value="mujer">
-                    <label class="form-check-label" for="InputGenero">
-                      Mujer
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputMotivo">Motivo de Consulta</label>
-                <select id="inputMotivo" class="form-control" name="motivoconsulta">
-                    <option selected>Seleccionar</option>
-                    <option>Pérdida de peso</option>
-                    <option>Aumentar masa muscular</option>
-                    <option>Mantenimiento de peso</option>
-                    <option>Adquirir hábitos saludables</option>
-                    <option>Otros</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
-</div>
-</body>
-</html>
+    <p>Sexo:
+        <input type='radio' name='hm_cliente' value='hombre'/>Hombre 
+        <input type='radio' name='hm_cliente' value='mujer'/>Mujer
+    </p>
+    <p>Teléfono: <input type="number" name='numero_tlf'/></p>
+    <input type="submit" value="Continuar"/> 
+</form>
 
 {% endblock %}

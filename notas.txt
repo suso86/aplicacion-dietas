@@ -1,0 +1,157 @@
+#estilo de vida
+{% extends "base.html" %}
+{% block content %}
+<h2>Estilo de vida</h2>
+<form action="{{ url_for('EvaluacionAntropometrica') }}" method="POST">
+    <!--
+    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
+    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
+    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
+    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
+    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
+    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
+    <input type="hidden" name="sn_cliente_enfermedad" value="{{sn_cliente_enfermedad}}"/>
+    <input type="hidden" name="cual_enfermedad" value="{{cual_enfermedad}}"/>
+    <input type="hidden" name="sn_cliente_alergia" value="{{sn_cliente_alergia}}"/>
+    <input type="hidden" name="cual_alergia" value="{{cual_alergia}}"/>
+    <input type="hidden" name="sn_cliente_antecedentes" value="{{sn_cliente_antecedentes}}"/>
+    <input type="hidden" name="cual_antecedentes" value="{{cual_antecedentes}}"/>
+    <input type="hidden" name="verdura_fruta" value="{{verdura_fruta}}"/>
+    <input type="hidden" name="legumbres_cereales" value="{{legumbres_cereales}}"/>
+    <input type="hidden" name="pescado_carne" value="{{pescado_carne}}"/>
+    <input type="hidden" name="frutos_secos" value="{{frutos_secos}}"/>
+    <input type="hidden" name="lacteos" value="{{lacteos}}"/>
+    <input type="hidden" name="aceite" value="{{aceite}}"/>
+    <input type="hidden" name="preparar_alimentos" value="{{preparar_alimentos}}"/>
+    <input type="hidden" name="historial" value="{{historial}}"/>
+    <input type="hidden" name="edad_maxima" value="{{edad_maxima}}"/>
+    <input type="hidden" name="causa" value="{{causa}}"/>
+    <input type="hidden" name="sn_cliente_regimen" value="{{sn_cliente_regimen}}"/>
+    <input type="hidden" name="cual_regimen_nutricional" value="{{cual_regimen_nutricional}}"/>
+    -->
+    <p>Actividad diaria: 
+        <input type="radio" name='actividad' value='muy ligera'> Muy ligera
+        <input type="radio" name='actividad' value='ligera'> Ligera
+        <input type="radio" name='actividad' value='moderada'> Moderada
+        <input type="radio" name='actividad' value='activa'> Activa
+        <input type="radio" name='actividad' value='muy activa'> Muy activa
+    </p>
+    
+    <p>Consumo de alcohol: 
+        <input type="radio" name='sn_cliente_alcohol' value='si'> Si
+        <input type="radio" name='sn_cliente_alcohol' value='no'> No
+    </p>
+    <p>Consumo de café: 
+        <input type="radio" name='sn_cliente_cafe' value='si'> Si
+        <input type="radio" name='sn_cliente_cafe' value='no'> No
+    </p>
+    <p>Consumo de tabaco: 
+        <input type="radio" name='sn_cliente_tabaco' value='si'> Si
+        <input type="radio" name='sn_cliente_tabaco' value='no'> No
+    </p>
+    <p>Horas de sueño:  <input type='number' name='sueño'></p>
+    <p>Frecuencia de comidas:  
+        <input type="radio" name='frecuencia_comida' value='2'> 2
+        <input type="radio" name='frecuencia_comida' value='3'> 3
+        <input type="radio" name='frecuencia_comida' value='4'> 4
+        <input type="radio" name='frecuencia_comida' value='5'> 5
+        <input type="radio" name='frecuencia_comida' value='5'> 6
+    </p>
+    <p>¿Quién se encargada de la compra?: <input type='text' name='encargado_compra' /></p>
+    <p>Frecuencia de compras: <input type='text' name='frecuencia_compras' /> </p>
+
+    <p>¿Te gusta cocinar?:
+        <input type="radio" name='sn_gustar_cocinar' value='si'> Si
+        <input type="radio" name='sn_gustar_cocinar' value='no'> No
+    </p>
+
+    <p>¿A qué hora del día tienes más hambre?:
+        <input type="radio" name='mas_hambre' value='desayuno'> desayuno
+        <input type="radio" name='mas_hambre' value='media-mañana'> media-mañana
+        <input type="radio" name='mas_hambre' value='almuerzo '> almuerzo 
+        <input type="radio" name='mas_hambre' value='merienda'> merienda
+        <input type="radio" name='mas_hambre' value='cena'> cena
+    </p>
+
+    <p>Desayuno habitual: <input type='text' name='desayuno_habitual' /> </p>
+    <p>Merienda habitual: <input type='text' name='merienda_habitual' /></p>
+    <p>Preferencias de comida en la merienda: <input type='text' name='preferencia_merienda' /> </p>
+    <p>Preferencias de comida en el desayuno: <input type='text' name='preferencia_desayuno' /> </p>
+
+    <p>¿Sueles hacer 1 o 2 platos en la comida?:
+        <input type="radio" name='platos' value='1'> 1
+        <input type="radio" name='platos' value='2'> 2
+    </p>
+
+    <p>¿Cuántas comidas quieres realizar al día?:
+        <input type="checkbox" name='comidas_realizar' value='desayuno'> desayuno
+        <input type="checkbox" name='comidas_realizar' value='media-mañana'> media-mañana
+        <input type="checkbox" name='comidas_realizar' value='almuerzo '> almuerzo 
+        <input type="checkbox" name='comidas_realizar' value='merienda'> merienda
+        <input type="checkbox" name='comidas_realizar' value='cena'> cena
+    </p>
+    <input type="submit" value="Continuar"/> 
+</form>
+{% endblock %}
+
+        nombre_cliente = request.form['nombre_cliente']
+        primer_apellido = request.form['primer_apellido']
+        segundo_apellido = request.form['segundo_apellido']
+        direccion_cliente = request.form['direccion_cliente']
+        edad_cliente = request.form['edad_cliente']
+        hm_cliente = request.form['hm_cliente']
+        numero_tlf = request.form['numero_tlf']
+        sn_cliente_enfermedad = request.form['sn_cliente_enfermedad']
+        cual_enfermedad = request.form['cual_enfermedad']
+        sn_cliente_alergia = request.form['sn_cliente_alergia']
+        cual_alergia = request.form['cual_alergia']
+        sn_cliente_antecedentes = request.form['sn_cliente_antecedentes']
+        cual_antecedentes = request.form['cual_antecedentes']
+        verdura_fruta = request.form['verdura_fruta']
+        legumbres_cereales = request.form['legumbres_cereales']
+        pescado_carne = request.form['pescado_carne']
+        frutos_secos = request.form['frutos_secos']
+        lacteos = request.form['lacteos']
+        aceite = request.form['aceite']
+        preparar_alimentos = request.form['preparar_alimentos']
+        historial = request.form['historial']
+        edad_maxima = request.form['edad_maxima']
+        causa = request.form['causa']
+        sn_cliente_regimen = request.form['sn_cliente_regimen']
+        cual_regimen_nutricional = request.form['cual_regimen_nutricional']
+
+# EvaluacionAntropometrica
+    <!--
+    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
+    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
+    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
+    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
+    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
+    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
+    <input type="hidden" name="sn_cliente_enfermedad" value="{{sn_cliente_enfermedad}}"/>
+    <input type="hidden" name="cual_enfermedad" value="{{cual_enfermedad}}"/>
+    <input type="hidden" name="sn_cliente_alergia" value="{{sn_cliente_alergia}}"/>
+    <input type="hidden" name="cual_alergia" value="{{cual_alergia}}"/>
+    <input type="hidden" name="sn_cliente_antecedentes" value="{{sn_cliente_antecedentes}}"/>
+    <input type="hidden" name="cual_antecedentes" value="{{cual_antecedentes}}"/>
+    <input type="hidden" name="verdura_fruta" value="{{verdura_fruta}}"/>
+    <input type="hidden" name="legumbres_cereales" value="{{legumbres_cereales}}"/>
+    <input type="hidden" name="pescado_carne" value="{{pescado_carne}}"/>
+    <input type="hidden" name="frutos_secos" value="{{frutos_secos}}"/>
+    <input type="hidden" name="lacteos" value="{{lacteos}}"/>
+    <input type="hidden" name="aceite" value="{{aceite}}"/>
+    <input type="hidden" name="preparar_alimentos" value="{{preparar_alimentos}}"/>
+    <input type="hidden" name="historial" value="{{historial}}"/>
+    <input type="hidden" name="edad_maxima" value="{{edad_maxima}}"/>
+    <input type="hidden" name="causa" value="{{causa}}"/>
+    <input type="hidden" name="sn_cliente_regimen" value="{{sn_cliente_regimen}}"/>
+    <input type="hidden" name="cual_regimen_nutricional" value="{{cual_regimen_nutricional}}"/>
+    <input type="hidden" name="actividad" value="{{actividad}}"/>
+    <input type="hidden" name="sn_cliente_alcohol" value="{{sn_cliente_alcohol}}"/>
+    <input type="hidden" name="sn_cliente_cafe" value="{{sn_cliente_cafe}}"/>
+    <input type="hidden" name="sn_cliente_tabaco" value="{{sn_cliente_tabaco}}"/>
+    <input type="hidden" name="sueño" value="{{sueño}}"/>
+    <input type="hidden" name="frecuencia_comida" value="{{frecuencia_comida}}"/>
+    <input type="hidden" name="cual_regimen_nutricional" value="{{cual_regimen_nutricional}}"/>
+    <input type="hidden" name="cual_regimen_nutricional" value="{{cual_regimen_nutricional}}"/>
+    -->

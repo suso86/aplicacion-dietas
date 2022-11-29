@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Requerimientos energéticos</h2>
+<form action="{{ url_for('home') }}" method="POST">
+    <p>kcal: <input type="text" name="kcal"> </p>
+    <p>Proteinas: <input type="number" name="proteinas"> % </p>
+    <p>Grasas: <input type="number" name="grasas"> % </p>
+    <p>Hidratos de carbono: <input type="number" name="hc"> %  </p>
+    <input type='submit' name='Registrar' value='Registrar'>
+</form>
+{% endblock %}

@@ -1,101 +1,59 @@
-{% extends "Nutricion/base.html" %}
-
-{% load static %}
-
+{% extends "base.html" %}
 {% block content %}
+<h2>Salud y antecedentes propios y familiares</h2>
+<form action="{{ url_for('HabitosAlimenticios') }}" method="POST">
+    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
+    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
+    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
+    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
+    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
+    <input type="hidden" name="hm_cliente" value="{{hm_cliente}}"/>
+    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
 
-    {% if forms.errors %}
-    <div class="alert alert-danger" role="alert">
-        This is a danger alert-check it out!
-    </div>
-    {% endif %}
+    <p>¿Padeces alguna enfermedad?:
+        <input type="radio" name='sn_cliente_enfermedad' value='si'>Si
+        <input type="radio" name='sn_cliente_enfermedad' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? :
+        <p><textarea name="cual_enfermedad" rows="5" cols="30"></textarea></p>
+    </p>
 
+    <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?: 
+        <input type="radio" name='sn_cliente_alergia' value='si'>Si
+        <input type="radio" name='sn_cliente_alergia' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : 
+        <p><textarea name="cual_alergia" rows="5" cols="30"></textarea></p>
+    </p>
 
+    <p>¿Tienes antecedentes de enfermedades familiares?: 
+        <input type="radio" name='sn_cliente_antecedentes' value='si'>Si
+        <input type="radio" name='sn_cliente_antecedentes' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_antecedentes" rows="5" cols="30"></textarea></p>
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Datos Clínicos</h1>
-    <p class="mb-4"></p>
-        <form>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col">
-                        <p>¿Padeces alguna enfermedad?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="si" checked>
-                            <label class="form-check-label" for="InputEnfermedad">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="no">
-                            <label class="form-check-label" for="InputEnfermedad">
-                                No
-                            </label>
-                        </div>
-                        <p> </p>
-                        <label for="InputEnfermedadTipo">¿Cuál?</label>
-                        <select id="InputEnfermedadTipo" class="form-control" name="enfermedadTipo">
-                            <option selected>Seleccionar</option>
-                            <option>Diabetes Tipo 1</option>
-                            <option>Diabetes Tipo 2</option>
-                            <option>Hipertensión</option>
-                            <option>Colesterol Alto</option>
-                            <option>Otros</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="alergia" id="InputAlergia" value="si" checked>
-                            <label class="form-check-label" for="alergia">
-                                Sí
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="alergia" id="InputAlergia" value="no">
-                            <label class="form-check-label" for="alergia">
-                                No
-                            </label>
-                        </div>
-                        <p> </p>
-                        <label for="InputAlergiaTipo">¿Cuál?</label>
-                        <select id="InputAlergiaTipo" class="form-control" name="alergiaTipo">
-                            <option selected>Seleccionar</option>
-                            <option>Gluten</option>
-                            <option>Mariscos</option>
-                            <option>Lactosa</option>
-                            <option>Otros</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <p>¿Tienes antecedentes de enfermedades familiares?</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="si" checked>
-                    <label class="form-check-label" for="enfermedad">
-                      Sí
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="enfermedad" id="InputEnfermedad" value="no">
-                    <label class="form-check-label" for="enfermedad">
-                      No
-                    </label>
-                </div>
-                <div class="form-group">
-                    <p> </p>
-                    <label for="InputDireccion">¿Cuál?</label>
-                    <input type="text" class="form-control" id="InputEnfermedad" placeholder="Introduzca la enfermedad" name="enfermedadTipo">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </div>
-</div>
-</body>
-</html>
+    <p>¿Tienes algún problema digestivo y/o estreñimiento y/o diarrea?: 
+        <input type="radio" name='sn_cliente_estreñimiento' value='si'>Si
+        <input type="radio" name='sn_cliente_estreñimiento' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_estreñimiento" rows="5" cols="30"></textarea></p>
 
+    <p>¿Tienes algún problema problema hormonal?: 
+        <input type="radio" name='sn_cliente_hormonal' value='si'>Si
+        <input type="radio" name='sn_cliente_hormonal' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_hormonal" rows="5" cols="30"></textarea></p>
+
+    <input type="submit" value="Continuar"> 
+
+</form>
 {% endblock %}
+
