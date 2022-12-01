@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Hábitos alimenticios</h2>
+<form action="{{ url_for('EstiloVida') }}" method="POST">
+    
+    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
+    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
+    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
+    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
+    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
+    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
+    <input type="hidden" name="sn_cliente_enfermedad" value="{{sn_cliente_enfermedad}}"/>
+    <input type="hidden" name="cual_enfermedad" value="{{cual_enfermedad}}"/>
+    <input type="hidden" name="sn_cliente_alergia" value="{{sn_cliente_alergia}}"/>
+    <input type="hidden" name="cual_alergia" value="{{cual_alergia}}"/>
+    <input type="hidden" name="sn_cliente_antecedentes" value="{{sn_cliente_antecedentes}}"/>
+    <input type="hidden" name="cual_antecedentes" value="{{cual_antecedentes}}"/>
+
+    <p>Consumo a la semana:</p>
+    <ul>
+        <li>
+            <p>Consumo de verduras y fruta: 
+                <input type="radio" name='verdura_fruta' value='0'>0
+                <input type="radio" name='verdura_fruta' value='1'>1
+                <input type="radio" name='verdura_fruta' value='2'>2
+                <input type="radio" name='verdura_fruta' value='3'>3
+                <input type="radio" name='verdura_fruta' value='4'>4
+                <input type="radio" name='verdura_fruta' value='5'>5
+                <input type="radio" name='verdura_fruta' value='6'>6
+                <input type="radio" name='verdura_fruta' value='7'>7
+            </p>
+        </li>
+        <li>
+            <p>Consumo de legumbres y cereales: 
+                <input type="radio" name='legumbres_cereales' value='0'>0
+                <input type="radio" name='legumbres_cereales' value='1'>1
+                <input type="radio" name='legumbres_cereales' value='2'>2
+                <input type="radio" name='legumbres_cereales' value='3'>3
+                <input type="radio" name='legumbres_cereales' value='4'>4
+                <input type="radio" name='legumbres_cereales' value='5'>5
+                <input type="radio" name='legumbres_cereales' value='6'>6
+                <input type="radio" name='legumbres_cereales' value='7'>7
+            </p>
+        </li>
+        <li>
+            <p>Consumo de pescados y carnes: 
+                <input type="radio" name='pescado_carne' value='0'>0
+                <input type="radio" name='pescado_carne' value='1'>1
+                <input type="radio" name='pescado_carne' value='2'>2
+                <input type="radio" name='pescado_carne' value='3'>3
+                <input type="radio" name='pescado_carne' value='4'>4
+                <input type="radio" name='pescado_carne' value='5'>5
+                <input type="radio" name='pescado_carne' value='6'>6
+                <input type="radio" name='pescado_carne' value='7'>7
+            </p>
+        </li>
+        <li>
+            <p>Consumo de frutos secos: 
+                <input type="radio" name='frutos_secos' value='0'>0
+                <input type="radio" name='frutos_secos' value='1'>1
+                <input type="radio" name='frutos_secos' value='2'>2
+                <input type="radio" name='frutos_secos' value='3'>3
+                <input type="radio" name='frutos_secos' value='4'>4
+                <input type="radio" name='frutos_secos' value='5'>5
+                <input type="radio" name='frutos_secos' value='6'>6
+                <input type="radio" name='frutos_secos' value='7'>7
+            </p>
+        </li>
+        <li>
+            <p>Consumo de lácteos: 
+                <input type="radio" name='lacteos' value='0'>0
+                <input type="radio" name='lacteos' value='1'>1
+                <input type="radio" name='lacteos' value='2'>2
+                <input type="radio" name='lacteos' value='3'>3
+                <input type="radio" name='lacteos' value='4'>4
+                <input type="radio" name='lacteos' value='5'>5
+                <input type="radio" name='lacteos' value='6'>6
+                <input type="radio" name='lacteos' value='7'>7
+            </p>
+        </li> 
+        <li>
+            <p>Consumo de aceites: 
+                <input type="radio" name='aceite' value='0'>0
+                <input type="radio" name='aceite' value='1'>1
+                <input type="radio" name='aceite' value='2'>2
+                <input type="radio" name='aceite' value='3'>3
+                <input type="radio" name='aceite' value='4'>4
+                <input type="radio" name='aceite' value='5'>5
+                <input type="radio" name='aceite' value='6'>6
+                <input type="radio" name='aceite' value='7'>7
+            </p>
+        </li> 
+    </ul>
+
+    <p>¿Cómo preparas los alimentos?: 
+        <p><textarea name="preparar_alimentos" rows="5" cols="30"></textarea></p>
+    </p>
+    <p>Gustos alimentarios: </p>
+    <p>Historia ponderal: <input type='text' name='historial'></p>
+    <p>Edad a la que se alcanzó el peso máximo: <input type='number' name='edad_maxima'> </p>
+    <p>Causa subjetiva de la ganancia o pérdida de peso: <input type='text' name='causa' ></p>
+    <p>¿Ha realizado algún régimen nutricional? 
+        <input type="radio" name='sn_cliente_regimen' value='si'>Si
+        <input type="radio" name='sn_cliente_regimen' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual, durante cuanto tiempo, que falló? : 
+        <p><textarea name="cual_regimen_nutricional" rows="5" cols="30"></textarea></p>
+    </p>
+    <input type="submit" value="Continuar"/> 
+
+</form>
+{% endblock %}

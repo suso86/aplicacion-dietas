@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Datos básicos</h2>
+<form action="{{ url_for('SaludAntecedentes') }}" method="POST">
+    <p>Nombre: <input type='text' name='nombre_cliente' required/></p>
+    <p>Primer apellido: <input type='text' name='primer_apellido' required/>
+       Segundo apellido: <input type='text' name='segundo_apellido' required/>
+    </p>
+    <p>Dirección: <input type='text' name='direccion_cliente'/></p>
+    {% if edad == ''%}
+        <p>Edad: <input type='number' name='edad_cliente'/> </p>
+    {% else %}
+        <p>Edad: <input type='number' name='edad_cliente' placeholder="{{edad}}" value="{{edad}}"/></p>
+    {% endif %}
+    <p>Sexo:
+        <input type='radio' name='hm_cliente' value='hombre'/>Hombre 
+        <input type='radio' name='hm_cliente' value='mujer'/>Mujer
+    </p>
+    <p>Teléfono: <input type="number" name='numero_tlf'/></p>
+    <input type="submit" value="Continuar"/> 
+</form>
+
+{% endblock %}

@@ -148,7 +148,7 @@ def Requerimientos():
         cliente.actividad, " ", cliente.altura, " ", cliente.kcal)
         return render_template("requerimientos.html")
 
-
+    
 #--------------------------------------------------------------------------------------------------------------#
 
 if __name__ == '__main__':

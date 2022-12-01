@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Salud y antecedentes propios y familiares</h2>
+<form action="{{ url_for('HabitosAlimenticios') }}" method="POST">
+    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
+    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
+    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
+    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
+    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
+    <input type="hidden" name="hm_cliente" value="{{hm_cliente}}"/>
+    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
+
+    <p>¿Padeces alguna enfermedad?:
+        <input type="radio" name='sn_cliente_enfermedad' value='si'>Si
+        <input type="radio" name='sn_cliente_enfermedad' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? :
+        <p><textarea name="cual_enfermedad" rows="5" cols="30"></textarea></p>
+    </p>
+
+    <p>¿Tienes alguna alergia o intoleracia o sospecho de ello?: 
+        <input type="radio" name='sn_cliente_alergia' value='si'>Si
+        <input type="radio" name='sn_cliente_alergia' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : 
+        <p><textarea name="cual_alergia" rows="5" cols="30"></textarea></p>
+    </p>
+
+    <p>¿Tienes antecedentes de enfermedades familiares?: 
+        <input type="radio" name='sn_cliente_antecedentes' value='si'>Si
+        <input type="radio" name='sn_cliente_antecedentes' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_antecedentes" rows="5" cols="30"></textarea></p>
+
+    <p>¿Tienes algún problema digestivo y/o estreñimiento y/o diarrea?: 
+        <input type="radio" name='sn_cliente_estreñimiento' value='si'>Si
+        <input type="radio" name='sn_cliente_estreñimiento' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_estreñimiento" rows="5" cols="30"></textarea></p>
+
+    <p>¿Tienes algún problema problema hormonal?: 
+        <input type="radio" name='sn_cliente_hormonal' value='si'>Si
+        <input type="radio" name='sn_cliente_hormonal' value='no'>No
+    </p>
+    <!--Esta pregunta se da si se da el caso de poner si-->
+    <p>¿Cual? : </p>
+    <p><textarea name="cual_hormonal" rows="5" cols="30"></textarea></p>
+
+    <input type="submit" value="Continuar"> 
+
+</form>
+{% endblock %}
+

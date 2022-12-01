@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Evaluación antropométrica</h2>
+<form action="{{ url_for('Requerimientos') }}" method="POST">
+    <p>Altura: <input type='number' name='altura'></p>
+    <p>Peso: <input type='number' name='peso'> </p>
+    <p>Porcentaje graso: <input type='number' name='graso'> %</p>
+    <p>Pliegues cutáneos: </p>
+    <p>Circunsferencias corporales: </p>
+    <ul>
+        <li>Brazo: <input type='number' name='brazo'></li>
+        <li>Cintura: <input type='number' name='cintura'></li>
+        <li>Cuádriceps: <input type='number' name='cuadriceps'></li>
+        <li>Espalda: <input type='number' name='espalda'></li>
+        <li>Hombro: <input type='number' name='hombro'></li>
+        <li>Piernas: <input type='number' name='piernas'></li>
+    </ul>
+
+    <input type="submit" value="Continuar"/> 
+</form>
+{% endblock %}

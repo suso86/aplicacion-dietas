@@ -71,27 +71,8 @@ class Cliente:
         self.proteinas=0
         self.grasas=0
         self.hc=0
-        
-        #De los Cálculos
         self.MB=0
         self.MB_FA=0
-        self.GET=0
-        self.ET=0
-
-        # Porcentajes de macronutrientes diarios
-        self.pordia_grasa=0
-        self.pordia_proteina=0
-        self.pordia_hc=0
-
-        #gramos macronutrientes por peso
-        self.gr_grasa=0
-        self.gr_proteina=0
-        self.gr_hc=0
-
-        #Extra de entrevista
-        self.motivo_consulta=""
-        self.super_defi=0
-
 
 
 
