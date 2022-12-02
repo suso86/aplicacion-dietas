@@ -92,6 +92,18 @@ class Cliente:
         self.motivo_consulta=""
         self.super_defi=0
 
+        self.desayuno=[]
+        self.mediamanana=[]
+        self.comida=[]
+        self.merienda=[]
+        self.cena=[]
+        self.recena=[]
+        self.porc_desayuno=0
+        self.porc_mediamanana=0
+        self.porc_comida=0
+        self.porc_merienda=0
+        self.porc_cena=0
+        self.porc_recena=0
 
 
 

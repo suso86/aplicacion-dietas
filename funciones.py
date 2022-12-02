@@ -51,3 +51,39 @@ def gramospeso(cliente): #gramos macronutrientes en el peso
     cliente.gr_grasa=cliente.grasa/cliente.peso
     cliente.gr_proteina=cliente.proteina/cliente.peso
     cliente.gr_hc=cliente.hc/cliente.peso
+
+
+def distribuciondiamacronutri(cliente): #Distribución por comida de los macronutrientes
+    
+    
+    cliente.desayuno=[cliente.kcal*cliente.porc_desayuno,
+                        cliente.grasa*cliente.porc_desayuno,
+                        cliente.proteina*cliente.porc_desayuno,
+                        cliente.hc*cliente.porc_desayuno]
+
+    cliente.mediamanana=[cliente.kcal*cliente.porc_mediamanana,
+                    cliente.grasa*cliente.porc_mediamanana,
+                    cliente.proteina*cliente.porc_mediamanana,
+                    cliente.hc*cliente.porc_mediamanana]
+                                            
+    
+    cliente.comida=[cliente.kcal*cliente.porc_comida,
+                cliente.grasa*cliente.porc_comida,
+                cliente.proteina*cliente.porc_comida,
+                cliente.hc*cliente.porc_comida]
+
+    cliente.merienda=[cliente.kcal*cliente.porc_merienda,
+                    cliente.grasa*cliente.porc_merienda,
+                    cliente.proteina*cliente.porc_merienda,
+                    cliente.hc*cliente.porc_merienda
+    ]
+    
+    cliente.cena=[cliente.kcal*cliente.porc_cena,
+                cliente.grasa*cliente.porc_cena,
+                cliente.proteina*cliente.porc_cena,
+                cliente.hc*cliente.porc_cena]
+
+    cliente.recena=[cliente.kcal*cliente.porc_recena,
+                cliente.grasa*cliente.porc_recena,
+                cliente.proteina*cliente.porc_recena,
+                cliente.hc*cliente.porc_recena]
