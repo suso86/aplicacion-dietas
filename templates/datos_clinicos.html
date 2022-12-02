@@ -2,14 +2,6 @@
 {% block content %}
 <h2>Salud y antecedentes propios y familiares</h2>
 <form action="{{ url_for('HabitosAlimenticios') }}" method="POST">
-    <input type="hidden" name="nombre_cliente" value="{{nombre_cliente}}"/>
-    <input type="hidden" name="primer_apellido" value="{{primer_apellido}}"/>
-    <input type="hidden" name="segundo_apellido" value="{{segundo_apellido}}"/>
-    <input type="hidden" name="direccion_cliente" value="{{direccion_cliente}}"/>
-    <input type="hidden" name="edad_cliente" value="{{edad_cliente}}"/>
-    <input type="hidden" name="hm_cliente" value="{{hm_cliente}}"/>
-    <input type="hidden" name="numero_tlf" value="{{numero_tlf}}"/>
-
     <p>¿Padeces alguna enfermedad?:
         <input type="radio" name='sn_cliente_enfermedad' value='si'>Si
         <input type="radio" name='sn_cliente_enfermedad' value='no'>No
