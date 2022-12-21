@@ -91,7 +91,8 @@ class Cliente:
         #Extra de entrevista
         self.motivo_consulta=""
         self.super_defi=0
-
+        self.distribucion=[]
+        
         self.desayuno=[]
         self.mediamanana=[]
         self.comida=[]

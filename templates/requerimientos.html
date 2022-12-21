@@ -1,11 +1,76 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Requerimientos energéticos</h2>
+<p>Metabolismo basal (MB): {{cliente.MB}} </p>
+<p>MB*FA: {{cliente.MB_FA}} </p>
+<p>ET: {{cliente.ET}} </p>
+<p>GET: {{cliente.GET}} </p>
+<p>Déficit o superavit: {{cliente.super_defi}} </p>
+
 <form action="{{ url_for('home') }}" method="POST">
-    <p>kcal: <input type="text" name="kcal"> </p>
-    <p>Proteinas: <input type="number" name="proteinas"> % </p>
-    <p>Grasas: <input type="number" name="grasas"> % </p>
-    <p>Hidratos de carbono: <input type="number" name="hc"> %  </p>
+    <h3>Total objetivos</h3>
+    <table class="default">
+        <tr>
+            <td>kcal</td>
+            <td><input type="number" name="kcal_totales" placeholder="{{cliente.kcal}}" value="{{cliente.kcal}}"></td>
+        </tr>
+        <tr>
+            <td>G Grasa</td>
+            <td><input type="number" name="grasas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.grasas}}"></td>
+        </tr>
+        <tr>
+            <td>G Proteinas</td>
+            <td><input type="number" name="proteinas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.proteinas}}"></td>
+        </tr>
+        <tr>
+            <td>G Hidratos de Carbono</td>
+            <td><input type="number" name="hc_totales" placeholder="{{cliente.kcal}}" value="{{cliente.hc}}"></td>
+        </tr>
+    </table>
+
+    <h3>Cálculo de macronutrientes diarios</h3>
+    <table class="default">
+        <tr>
+            <td>Proteinas </td>
+            <td><input type="number" name="porcentaje_proteinas" placeholder="{{cliente.pordia_proteina}}" value="{{cliente.pordia_proteina}}"> %</td>
+        </tr>
+        <tr>
+            <td>Grasas </td>
+            <td><input type="number" name="porcentaje_grasas" placeholder="{{cliente.pordia_grasa}}" value="{{cliente.pordia_grasa}}"> %</td>
+        </tr>
+        <tr>
+            <td>Hidratos de carbono </td>
+            <td><input type="number" name="porcentaje_hc" placeholder="{{cliente.pordia_hc}}" value="{{cliente.pordia_hc}}"> % </td>
+        </tr>
+    </table>
+
+    <h3>Cálculo por dia</h3>
+    <table class="deafult">
+        <tr>
+            <td>Cálculo por dia</td>
+            <td> Kcal </td>
+            <td> Grasa </td>
+            <td> Proteina </td>
+            <td> HC </td>
+        </tr>
+
+        {% for comida in cliente.distribucion %}
+            <tr>
+                <td>{{comida[0]}}</td>
+                <td>{{comida[1]}}</td>
+                <td>{{comida[2]}}</td>
+                <td>{{comida[3]}}</td>
+                <td>{{comida[4]}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
     <input type='submit' name='Registrar' value='Registrar'>
 </form>
+
+<style>
+    table,td{
+        border: 1px solid black;
+    }
+</style>
 {% endblock %}

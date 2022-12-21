@@ -4,6 +4,7 @@ from os import remove
 from datetime import timedelta
 
 from cliente import Cliente
+import funciones
 
 #hola
 app=Flask(__name__)
@@ -39,6 +40,7 @@ def SaludAntecedentes():
         cliente.edad = request.form['edad_cliente']
         cliente.sexo = request.form['hm_cliente']
         cliente.telefono = request.form['numero_tlf']
+        cliente.motivo_consulta = request.form['motivo_consulta']
 
         return render_template("datos_clinicos.html")
 
@@ -115,7 +117,26 @@ def Requerimientos():
         cliente.hombro = request.form['hombro']
         cliente.piernas = request.form['piernas']
 
-        return render_template("requerimientos.html")
+        #Realizamos en este apartado las funciones para ver los macronutrientes
+        cliente.super_defi = 500
+        cliente.pordia_grasa = 50
+        cliente.pordia_proteina = 15 
+        cliente.pordia_hc = 35
+
+        print(cliente.super_defi)
+
+        funciones.MB(cliente)
+        funciones.MB_FA(cliente)
+        funciones.ET(cliente)
+        funciones.GET(cliente)
+        funciones.total_kcal(cliente)
+        funciones.macronutrientes_diario(cliente)
+        funciones.gramospeso(cliente)
+        funciones.distribucion(cliente)
+
+        print(cliente)
+
+        return render_template("requerimientos.html", cliente=cliente)
 
     
 #--------------------------------------------------------------------------------------------------------------#
