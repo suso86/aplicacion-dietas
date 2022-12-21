@@ -68,36 +68,36 @@ def gramospeso(cliente): #gramos macronutrientes en el peso
 
 def distribuciondiamacronutri(cliente): #Distribución por comida de los macronutrientes
     
-    cliente.desayuno=["desayuno",cliente.kcal*cliente.porc_desayuno,
-                        cliente.grasas*cliente.porc_desayuno,
-                        cliente.proteinas*cliente.porc_desayuno,
-                        cliente.hc*cliente.porc_desayuno]
+    cliente.desayuno=["desayuno",cliente.kcal*cliente.porc_kcal_desayuno,
+                        cliente.grasas*cliente.porc_grasas_desayuno,
+                        cliente.proteinas*cliente.porc_proteinas_desayuno,
+                        cliente.hc*cliente.porc_hc_desayuno]
 
-    cliente.mediamanana=["media-mañana",cliente.kcal*cliente.porc_mediamanana,
-                    cliente.grasas*cliente.porc_mediamanana,
-                    cliente.proteinas*cliente.porc_mediamanana,
-                    cliente.hc*cliente.porc_mediamanana]
+    cliente.mediamanana=["media-mañana",cliente.kcal*cliente.porc_kcal_mediamanana,
+                    cliente.grasas*cliente.porc_grasas_mediamanana,
+                    cliente.proteinas*cliente.porc_proteinas_mediamanana,
+                    cliente.hc*cliente.porc_hc_mediamanana]
                                             
     
-    cliente.comida=["almuerzo",cliente.kcal*cliente.porc_comida,
-                cliente.grasas*cliente.porc_comida,
-                cliente.proteinas*cliente.porc_comida,
-                cliente.hc*cliente.porc_comida]
+    cliente.comida=["almuerzo",cliente.kcal*cliente.porc_kcal_comida,
+                cliente.grasas*cliente.porc_grasas_comida,
+                cliente.proteinas*cliente.porc_proteinas_comida,
+                cliente.hc*cliente.porc_hc_comida]
 
-    cliente.merienda=["merienda",cliente.kcal*cliente.porc_merienda,
-                    cliente.grasas*cliente.porc_merienda,
-                    cliente.proteinas*cliente.porc_merienda,
-                    cliente.hc*cliente.porc_merienda]
+    cliente.merienda=["merienda",cliente.kcal*cliente.porc_kcal_merienda,
+                    cliente.grasas*cliente.porc_grasas_merienda,
+                    cliente.proteinas*cliente.porc_proteinas_merienda,
+                    cliente.hc*cliente.porc_hc_merienda]
     
-    cliente.cena=["cena",cliente.kcal*cliente.porc_cena,
-                cliente.grasas*cliente.porc_cena,
-                cliente.proteinas*cliente.porc_cena,
-                cliente.hc*cliente.porc_cena]
+    cliente.cena=["cena",cliente.kcal*cliente.porc_kcal_cena,
+                cliente.grasas*cliente.porc_grasas_cena,
+                cliente.proteinas*cliente.porc_proteinas_cena,
+                cliente.hc*cliente.porc_hc_cena]
 
-    cliente.recena=["recena",cliente.kcal*cliente.porc_recena,
-                cliente.grasas*cliente.porc_recena,
-                cliente.proteinas*cliente.porc_recena,
-                cliente.hc*cliente.porc_recena]
+    cliente.recena=["recena",cliente.kcal*cliente.porc_kcal_recena,
+                cliente.grasas*cliente.porc_grasas_recena,
+                cliente.proteinas*cliente.porc_proteinas_recena,
+                cliente.hc*cliente.porc_hc_recena]
 
 def distribucion(cliente):
     distribuciondiamacronutri(cliente)

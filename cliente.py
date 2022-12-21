@@ -99,12 +99,30 @@ class Cliente:
         self.merienda=[]
         self.cena=[]
         self.recena=[]
-        self.porc_desayuno=0
-        self.porc_mediamanana=0
-        self.porc_comida=0
-        self.porc_merienda=0
-        self.porc_cena=0
-        self.porc_recena=0
+        self.porc_kcal_desayuno=0
+        self.porc_kcal_mediamanana=0
+        self.porc_kcal_comida=0
+        self.porc_kcal_merienda=0
+        self.porc_kcal_cena=0
+        self.porc_kcal_recena=0
+        self.porc_grasas_desayuno=0
+        self.porc_grasas_mediamanana=0
+        self.porc_grasas_comida=0
+        self.porc_grasas_merienda=0
+        self.porc_grasas_cena=0
+        self.porc_grasas_recena=0
+        self.porc_proteinas_desayuno=0
+        self.porc_proteinas_mediamanana=0
+        self.porc_proteinas_comida=0
+        self.porc_proteinas_merienda=0
+        self.porc_proteinas_cena=0
+        self.porc_proteinas_recena=0
+        self.porc_hc_desayuno=0
+        self.porc_hc_mediamanana=0
+        self.porc_hc_comida=0
+        self.porc_hc_merienda=0
+        self.porc_hc_cena=0
+        self.porc_hc_recena=0
 
 
 
