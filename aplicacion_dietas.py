@@ -123,8 +123,6 @@ def Requerimientos():
         cliente.pordia_proteina = 15 
         cliente.pordia_hc = 35
 
-        print(cliente.super_defi)
-
         funciones.MB(cliente)
         funciones.MB_FA(cliente)
         funciones.ET(cliente)
@@ -133,8 +131,34 @@ def Requerimientos():
         funciones.macronutrientes_diario(cliente)
         funciones.gramospeso(cliente)
         funciones.distribucion(cliente)
+        
+        rango = len(cliente.distribucion)
+        return render_template("requerimientos.html", cliente=cliente,rango=rango)
 
-        print(cliente)
+@app.route("/registro_cliente/requerimientos/actualizados", methods=["POST"])
+# En el caso de que el dietista no esté de acuerdo con los datos de los requerimientos, podrá editarlo
+def actualizarRequerimientos():
+    global cliente
+
+    if request.method == "POST": 
+        cliente.super_defi = int(request.form['superavit'])
+        grasa = int(request.form['porcentaje_grasas'])
+        proteina = int(request.form['porcentaje_proteinas'])
+        hc = int(request.form['porcentaje_hc'])
+
+        print(type(proteina),proteina, " ",type(cliente.pordia_proteina), cliente.pordia_proteina)
+        print(type(grasa),grasa, " " , type(cliente.pordia_grasa),cliente.pordia_grasa)
+        print(type(hc),hc, " ", type(cliente.pordia_hc),cliente.pordia_hc)
+
+        funciones.actualizarMacroDiarios(cliente,grasa,hc,proteina)
+        funciones.MB(cliente)
+        funciones.MB_FA(cliente)
+        funciones.ET(cliente)
+        funciones.GET(cliente)
+        funciones.total_kcal(cliente)
+        funciones.macronutrientes_diario(cliente)
+        funciones.gramospeso(cliente)
+        funciones.distribuciondiamacronutri(cliente)
 
         return render_template("requerimientos.html", cliente=cliente)
 

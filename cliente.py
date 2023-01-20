@@ -99,6 +99,17 @@ class Cliente:
         self.merienda=[]
         self.cena=[]
         self.recena=[]
+
+        self.desayuno_diario=[]
+        self.mediamanana_diario=[]
+        self.comida_diario=[]
+        self.merienda_diario=[]
+        self.cena_diario=[]
+        self.recena_diario=[]
+
+        self.porc_comidas = []
+        
+        """
         self.porc_kcal_desayuno=0
         self.porc_kcal_mediamanana=0
         self.porc_kcal_comida=0
@@ -123,6 +134,7 @@ class Cliente:
         self.porc_hc_merienda=0
         self.porc_hc_cena=0
         self.porc_hc_recena=0
+        """
 
 
 

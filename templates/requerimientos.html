@@ -5,30 +5,11 @@
 <p>MB*FA: {{cliente.MB_FA}} </p>
 <p>ET: {{cliente.ET}} </p>
 <p>GET: {{cliente.GET}} </p>
-<p>Déficit o superavit: {{cliente.super_defi}} </p>
 
-<form action="{{ url_for('home') }}" method="POST">
-    <h3>Total objetivos</h3>
-    <table class="default">
-        <tr>
-            <td>kcal</td>
-            <td><input type="number" name="kcal_totales" placeholder="{{cliente.kcal}}" value="{{cliente.kcal}}"></td>
-        </tr>
-        <tr>
-            <td>G Grasa</td>
-            <td><input type="number" name="grasas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.grasas}}"></td>
-        </tr>
-        <tr>
-            <td>G Proteinas</td>
-            <td><input type="number" name="proteinas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.proteinas}}"></td>
-        </tr>
-        <tr>
-            <td>G Hidratos de Carbono</td>
-            <td><input type="number" name="hc_totales" placeholder="{{cliente.kcal}}" value="{{cliente.hc}}"></td>
-        </tr>
-    </table>
+<form action="{{ url_for('actualizarRequerimientos') }}" method="POST">
+    <p>Déficit o superavit: <input type="number" name=superavit placeholder="{{cliente.super_defi}}" value="{{cliente.super_defi}}"></p>
 
-    <h3>Cálculo de macronutrientes diarios</h3>
+    <h3>Cálculo de porcentajes de macronutrientes diarios</h3>
     <table class="default">
         <tr>
             <td>Proteinas </td>
@@ -44,6 +25,46 @@
         </tr>
     </table>
 
+    <h3>Total objetivos</h3>
+    <table class="default">
+        <tr>
+            <td>kcal</td>
+            <td><input type="number" name="kcal_totales" placeholder="{{cliente.kcal}}" value="{{cliente.kcal}}"></td>
+        </tr>
+        <tr>
+            <td>Grasa</td>
+            <td><input type="number" name="grasas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.grasas}}"></td>
+        </tr>
+        <tr>
+            <td>Proteinas</td>
+            <td><input type="number" name="proteinas_totales" placeholder="{{cliente.kcal}}" value="{{cliente.proteinas}}"></td>
+        </tr>
+        <tr>
+            <td>Hidratos de Carbono</td>
+            <td><input type="number" name="hc_totales" placeholder="{{cliente.kcal}}" value="{{cliente.hc}}"></td>
+        </tr>
+    </table>
+    <h3>Porcentajes por comidas</h3>
+    <table class="deafult">
+        <tr>
+            <td>Comidas</td>
+            <td> Kcal </td>
+            <td> Grasa </td>
+            <td> Proteina </td>
+            <td> HC </td>
+        </tr>
+        {% for comida in cliente.distribucion %}
+            <tr>
+                <td>{{comida[0]}}</td>
+                <td>{{comida[5][0]}}</td> <!--kcal-->
+                <td>{{comida[5][1]}}</td> <!--proteinas-->
+                <td>{{comida[5][2]}}</td> <!--grasas-->
+                <td>{{comida[5][3]}}</td> <!--hc-->
+                <td>%</td>
+            </tr>
+        {% endfor %}
+
+    </table>
     <h3>Cálculo por dia</h3>
     <table class="deafult">
         <tr>
@@ -56,18 +77,19 @@
 
         {% for comida in cliente.distribucion %}
             <tr>
-                <td>{{comida[0]}}</td>
-                <td>{{comida[1]}}</td>
-                <td>{{comida[2]}}</td>
-                <td>{{comida[3]}}</td>
-                <td>{{comida[4]}}</td>
+                <td>{{comida[0]}}</td> <!--nombre-->
+                <td>{{comida[1]}}</td> <!--kcal-->
+                <td>{{comida[2]}}</td> <!--grasas-->
+                <td>{{comida[3]}}</td> <!--proteinas-->
+                <td>{{comida[4]}}</td> <!-- hc -->
             </tr>
         {% endfor %}
 
     </table>
-    <input type='submit' name='Registrar' value='Registrar'>
+    <input type='submit' name='Actualiar' value='Actualizar'>
 </form>
 
+<button>Registrar cliente</button>
 <style>
     table,td{
         border: 1px solid black;
