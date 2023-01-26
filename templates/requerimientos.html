@@ -88,8 +88,12 @@
     </table>
     <input type='submit' name='Actualiar' value='Actualizar'>
 </form>
-
+<!--
 <button>Registrar cliente</button>
+-->
+<form action="{{ url_for('ClienteRegistrado') }}" method="POST">
+    <input type='submit' name='Registrar cliente' value='Registrar cliente'>
+</form>
 <style>
     table,td{
         border: 1px solid black;

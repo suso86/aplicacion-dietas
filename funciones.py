@@ -235,8 +235,7 @@ def porcentajesdiarios(cliente):
             cliente.cena_diario.append(aux)
             cliente.recena_diario.append(aux)
 
-
-def agregarcliente():
+def agregarcliente(cliente):
     mydb=mysql.connector.connect(host='localhost',user='root',password='123456',
                                 database='dietas')
     mycursor=mydb.cursor()

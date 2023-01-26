@@ -146,10 +146,6 @@ def actualizarRequerimientos():
         proteina = int(request.form['porcentaje_proteinas'])
         hc = int(request.form['porcentaje_hc'])
 
-        print(type(proteina),proteina, " ",type(cliente.pordia_proteina), cliente.pordia_proteina)
-        print(type(grasa),grasa, " " , type(cliente.pordia_grasa),cliente.pordia_grasa)
-        print(type(hc),hc, " ", type(cliente.pordia_hc),cliente.pordia_hc)
-
         funciones.actualizarMacroDiarios(cliente,grasa,hc,proteina)
         funciones.MB(cliente)
         funciones.MB_FA(cliente)
@@ -161,6 +157,12 @@ def actualizarRequerimientos():
         funciones.distribuciondiamacronutri(cliente)
 
         return render_template("requerimientos.html", cliente=cliente)
+
+@app.route("/registro_cliente/cliente_registrado")
+def ClienteRegistrado():
+    global cliente
+    funciones.agregarcliente(cliente)
+    return render_template("confirmacion_cliente_registrado.html")
 
     
 #--------------------------------------------------------------------------------------------------------------#
