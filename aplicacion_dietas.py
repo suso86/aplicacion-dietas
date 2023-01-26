@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 from werkzeug.utils import secure_filename
 from os import remove
 from datetime import timedelta
+import mysql.connector
 
 from cliente import Cliente
 import funciones
@@ -158,7 +159,7 @@ def actualizarRequerimientos():
 
         return render_template("requerimientos.html", cliente=cliente)
 
-@app.route("/registro_cliente/cliente_registrado")
+@app.route("/registro_cliente/cliente_registrado", methods=["POST"])
 def ClienteRegistrado():
     global cliente
     funciones.agregarcliente(cliente)
