@@ -1,5 +1,6 @@
 from cliente import Cliente
 import mysql.connector
+import json
 
 """
 Acordarnos de cambiar los valores fijos por valores dependiendo del nutricionista:
@@ -240,7 +241,7 @@ def agregarcliente(cliente):
     mydb=mysql.connector.connect(host='localhost',user='root',password='123456',
                                 database='dietas')
     mycursor=mydb.cursor()
-    mycursor.execute("INSERT INTO clientes VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+    mycursor.execute("INSERT INTO clientes VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
         (str(cliente.nombre),
         str(cliente.primer_apellido),
         str(cliente.segundo_apellido),
@@ -256,10 +257,10 @@ def agregarcliente(cliente):
         str(cliente.espalda),
        str(cliente.hombro),
         str(cliente.piernas),
-        str(cliente.kcal),
-        str(cliente.proteinas),
-        str(cliente.grasas),
-        str(cliente.hc),
+        int(cliente.kcal),
+        int(cliente.proteinas),
+        int(cliente.grasas),
+        int(cliente.hc),
         str(cliente.MB),
         str(cliente.MB_FA),
         str(cliente.GET),
@@ -301,7 +302,7 @@ def agregarcliente(cliente):
         str(cliente.preferencia_merienda),
        str(cliente.preferencia_desayuno),
        str(cliente.platos),
-        ##cliente.comidas_realizar,
+        json.dumps(cliente.comidas_realizar),
         str(cliente.motivo_consulta),
         str(cliente.super_defi ),
        str(cliente.pordia_grasa),
@@ -309,14 +310,13 @@ def agregarcliente(cliente):
         str(cliente.pordia_hc ),
         str(cliente.gr_grasa ),
         str(cliente.gr_proteina) ,
-        str(cliente.gr_hc) ,
-        ##cliente.desayuno_diario,
-        ##cliente.mediamanana_diario,
-        ##cliente.comida_diario,
-        ##cliente.merienda_diario,
-        ##cliente.cena_diario,
-        ##cliente.recena_diario,
-        ##cliente.porc_comidas)
-        ))
+        str(cliente.gr_hc),
+        json.dumps(cliente.desayuno_diario),
+        json.dumps(cliente.mediamanana_diario),
+        json.dumps(cliente.comida_diario),
+        json.dumps(cliente.merienda_diario),
+        json.dumps(cliente.cena_diario),
+        json.dumps(cliente.recena_diario),
+        json.dumps(cliente.porc_comidas)))
     mydb.commit()
     mydb.close()
