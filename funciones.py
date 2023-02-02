@@ -1,4 +1,6 @@
 from cliente import Cliente
+import mysql.connector
+import json
 
 """
 Acordarnos de cambiar los valores fijos por valores dependiendo del nutricionista:
@@ -243,7 +245,11 @@ def agregarcliente(cliente):
         (str(cliente.nombre),
         str(cliente.primer_apellido),
         str(cliente.segundo_apellido),
+<<<<<<< HEAD
         str(cliente.direccion),
+=======
+        str(cliente.direccion ),
+>>>>>>> acf9d3269f7129bb1175591ce96c6bae15c632c4
         str(cliente.edad),
         str(cliente.sexo),
         str(cliente.telefono),
@@ -253,6 +259,7 @@ def agregarcliente(cliente):
         str(cliente.cintura),
         str(cliente.cuadriceps),
         str(cliente.espalda),
+<<<<<<< HEAD
         str(cliente.hombro),
         str(cliente.piernas),
         str(cliente.kcal),
@@ -263,6 +270,18 @@ def agregarcliente(cliente):
         str(cliente.MB_FA),
         str(cliente.GET),
         str(cliente.ET),
+=======
+       str(cliente.hombro),
+        str(cliente.piernas),
+        int(cliente.kcal),
+        int(cliente.proteinas),
+        int(cliente.grasas),
+        int(cliente.hc),
+        str(cliente.MB),
+        str(cliente.MB_FA),
+        str(cliente.GET),
+       str(cliente.ET),
+>>>>>>> acf9d3269f7129bb1175591ce96c6bae15c632c4
         str(cliente.sn_cliente_enfermedad),
         str(cliente.cual_enfermedad),
         str(cliente.sn_cliente_alergia),
@@ -279,7 +298,11 @@ def agregarcliente(cliente):
         str(cliente.frutos_secos),
         str(cliente.lacteos),
         str(cliente.aceite),
+<<<<<<< HEAD
         str(cliente.preparar_alimentos),
+=======
+       str(cliente.preparar_alimentos) ,
+>>>>>>> acf9d3269f7129bb1175591ce96c6bae15c632c4
         str(cliente.historial),
         str(cliente.edad_maxima),
         str(cliente.causa),
@@ -298,6 +321,7 @@ def agregarcliente(cliente):
         str(cliente.desayuno_habitual),
         str(cliente.merienda_habitual),
         str(cliente.preferencia_merienda),
+<<<<<<< HEAD
         str(cliente.preferencia_desayuno),
         str(cliente.platos),
         str(cliente.motivo_consulta),
@@ -308,5 +332,25 @@ def agregarcliente(cliente):
         str(cliente.gr_grasa) ,
         str(cliente.gr_proteina) ,
         str(cliente.gr_hc)))
+=======
+       str(cliente.preferencia_desayuno),
+       str(cliente.platos),
+        json.dumps(cliente.comidas_realizar),
+        str(cliente.motivo_consulta),
+        str(cliente.super_defi ),
+       str(cliente.pordia_grasa),
+        str(cliente.pordia_proteina ),
+        str(cliente.pordia_hc ),
+        str(cliente.gr_grasa ),
+        str(cliente.gr_proteina) ,
+        str(cliente.gr_hc),
+        json.dumps(cliente.desayuno_diario),
+        json.dumps(cliente.mediamanana_diario),
+        json.dumps(cliente.comida_diario),
+        json.dumps(cliente.merienda_diario),
+        json.dumps(cliente.cena_diario),
+        json.dumps(cliente.recena_diario),
+        json.dumps(cliente.porc_comidas)))
+>>>>>>> acf9d3269f7129bb1175591ce96c6bae15c632c4
     mydb.commit()
     mydb.close()

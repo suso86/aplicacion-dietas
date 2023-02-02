@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 from werkzeug.utils import secure_filename
 from os import remove
 from datetime import timedelta
+import mysql.connector
 
 from cliente import Cliente
 import funciones
