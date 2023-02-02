@@ -158,7 +158,7 @@ def actualizarRequerimientos():
 
         return render_template("requerimientos.html", cliente=cliente)
 
-@app.route("/registro_cliente/cliente_registrado")
+@app.route("/registro_cliente/cliente_registrado", methods=["POST"])
 def ClienteRegistrado():
     global cliente
     funciones.agregarcliente(cliente)
