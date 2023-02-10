@@ -266,7 +266,7 @@ def agregarcliente(cliente):
         str(cliente.MB_FA),
         str(cliente.GET),
         str(cliente.ET),
-       str(cliente.hombro),
+        str(cliente.hombro),
         str(cliente.piernas),
         int(cliente.kcal),
         int(cliente.proteinas),
@@ -275,7 +275,7 @@ def agregarcliente(cliente):
         str(cliente.MB),
         str(cliente.MB_FA),
         str(cliente.GET),
-       str(cliente.ET),
+        str(cliente.ET),
         str(cliente.sn_cliente_enfermedad),
         str(cliente.cual_enfermedad),
         str(cliente.sn_cliente_alergia),
@@ -293,7 +293,7 @@ def agregarcliente(cliente):
         str(cliente.lacteos),
         str(cliente.aceite),
         str(cliente.preparar_alimentos),
-       str(cliente.preparar_alimentos) ,
+        str(cliente.preparar_alimentos) ,
         str(cliente.historial),
         str(cliente.edad_maxima),
         str(cliente.causa),
@@ -321,13 +321,13 @@ def agregarcliente(cliente):
         str(cliente.pordia_hc) ,
         str(cliente.gr_grasa) ,
         str(cliente.gr_proteina) ,
-        str(cliente.gr_hc)))
-       str(cliente.preferencia_desayuno),
-       str(cliente.platos),
+        str(cliente.gr_hc),
+        str(cliente.preferencia_desayuno),
+        str(cliente.platos),
         json.dumps(cliente.comidas_realizar),
         str(cliente.motivo_consulta),
         str(cliente.super_defi ),
-       str(cliente.pordia_grasa),
+        str(cliente.pordia_grasa),
         str(cliente.pordia_proteina ),
         str(cliente.pordia_hc ),
         str(cliente.gr_grasa ),
@@ -342,3 +342,12 @@ def agregarcliente(cliente):
         json.dumps(cliente.porc_comidas)))
     mydb.commit()
     mydb.close()
+
+def cargaralimentos():
+    mydb=mysql.connector.connect(host='localhost',user='root', password='123456',
+                            database='dietas')
+    mycursor=mydb.cursor()
+    mycursor.execute("select * from alimentos")
+    lista_alimentos=mycursor.fetchall()
+    mydb.close()
+    return lista_alimentos
